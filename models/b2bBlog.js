@@ -16,6 +16,7 @@ const BlogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Blog = mongoose.models.Blog || mongoose.model('Blog', BlogSchema);
+const BLOG_COLLECTION = process.env.BLOG_COLLECTION || 'b2b2_blogs';
+const Blog = mongoose.models.Blog || mongoose.model('Blog', BlogSchema, BLOG_COLLECTION);
 
 export default Blog;
