@@ -1,5 +1,5 @@
 import { dbConnect } from '../../../../../lib/db';
-import Blog from '@/models/Blog';
+import Blog from '@/models/b2bBlog';
 
 function validateAdminToken(request) {
   const token = request.headers.get('x-admin-token');

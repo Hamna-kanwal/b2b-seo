@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { dbConnect } from '../../../../lib/db.js';
-import Blog from '../../../../models/Blog.js';
+import Blog from '../../../../models/b2bBlog.js';
 
 // 1. GET ALL BLOGS
 function validateAdminToken(request) {
