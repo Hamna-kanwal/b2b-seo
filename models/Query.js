@@ -11,5 +11,6 @@ const QuerySchema = new mongoose.Schema({
   status: { type: String, default: 'pending' },
 }, { timestamps: true });
 
-const Query = mongoose.models.Query || mongoose.model('Query', QuerySchema);
+const QUERY_COLLECTION = process.env.QUERY_COLLECTION || 'b2b2_queries';
+const Query = mongoose.models.Query || mongoose.model('Query', QuerySchema, QUERY_COLLECTION);
 export default Query;
