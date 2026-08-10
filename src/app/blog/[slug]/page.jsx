@@ -81,9 +81,7 @@ export default async function BlogDetailPage({ params }) {
     <article className="w-full bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto w-full">
         <header className="mb-10 text-center">
-          <span className="text-black font-bold text-sm uppercase tracking-wider mb-2 block">
-            {blog.tag || "Service Article"}
-          </span>
+         
 
           <FormattedTitle title={blog.title} />
 
