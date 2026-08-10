@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Link from "next/link";
 import { dbConnect } from "@/lib/db";
 import Blog from "@/models/b2bBlog";
@@ -34,9 +35,29 @@ function FormattedTitle({ title }) {
   );
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 async function getBlogBySlug(slug) {
   await dbConnect();
-  return Blog.findOne({ slug }).lean();
+  const normalizedSlug = decodeURIComponent(String(slug || "")).trim();
+  if (!normalizedSlug) return null;
+
+  const blog = await Blog.findOne({
+    slug: {
+      $regex: `^${escapeRegExp(normalizedSlug)}$`,
+      $options: "i",
+    },
+  }).lean();
+
+  if (blog) return blog;
+
+  if (mongoose.Types.ObjectId.isValid(normalizedSlug)) {
+    return Blog.findById(normalizedSlug).lean();
+  }
+
+  return null;
 }
 
 export default async function BlogDetailPage({ params }) {

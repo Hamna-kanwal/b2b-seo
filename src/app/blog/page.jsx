@@ -26,7 +26,7 @@ const BlogCard = ({ title, excerpt, image, slug }) => (
       
       <div className="text-center">
         <Link 
-          href={`/blog/${slug}`} 
+          href={`/blog/${encodeURIComponent(slug)}`} 
           // Changed text color to Teqnoor purple for consistency
           className="font-bold text-xs uppercase tracking-widest text-[#821fbf] hover:text-purple-800 transition-colors"
         >

@@ -6,6 +6,16 @@ import 'react-quill-new/dist/quill.snow.css';
 
 const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 
+const createSlug = (value) =>
+  value
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
 export default function AdminBlogs() {
   const router = useRouter();
   const [blogs, setBlogs] = useState([]);
@@ -76,6 +86,11 @@ export default function AdminBlogs() {
     setFormData((prev) => ({ ...prev, title }));
   };
 
+  const handleSlugChange = (e) => {
+    const slug = createSlug(e.target.value);
+    setFormData((prev) => ({ ...prev, slug }));
+  };
+
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -136,6 +151,14 @@ export default function AdminBlogs() {
         return;
       }
 
+      const slug = createSlug(formData.slug);
+      if (!slug) {
+        showToast('Please provide a valid URL slug for the blog.', 'error');
+        setLoading(false);
+        return;
+      }
+
+      const payload = { ...formData, slug };
       const isEditing = Boolean(editingSlug);
       const url = isEditing ? `/api/blogs/${editingSlug}` : '/api/blogs';
       const method = isEditing ? 'PUT' : 'POST';
@@ -146,7 +169,7 @@ export default function AdminBlogs() {
           'Content-Type': 'application/json',
           'X-Admin-Token': token,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
@@ -315,9 +338,13 @@ export default function AdminBlogs() {
                 type="text"
                 required
                 value={formData.slug}
-                onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                onChange={handleSlugChange}
+                placeholder="e.g., boiler-installation-guide"
                 style={inputStyle}
               />
+              <p style={{ margin: '8px 0 0', fontSize: '12px', color: '#6b7280' }}>
+                Use lowercase letters, numbers, and hyphens only.
+              </p>
             </div>
 
             <div>
