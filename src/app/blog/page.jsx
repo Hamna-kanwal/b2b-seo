@@ -9,7 +9,7 @@ const BlogCard = ({ title, excerpt, image, slug }) => (
     <div className="relative h-56 w-full overflow-hidden">
       {/* Gradient overlay updated to match Teqnoor branding */}
       <div className="absolute inset-0 bg-gradient-to-t from-purple-950/60 to-transparent z-10" />
-      <img 
+      <img      
         src={image || '/teqnoor-default.jpg'} // Replace with your default image
         alt={title} 
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -26,7 +26,7 @@ const BlogCard = ({ title, excerpt, image, slug }) => (
       
       <div className="text-center">
         <Link 
-          href={`/blogs/${slug}`} 
+          href={`/blog/${slug}`} 
           // Changed text color to Teqnoor purple for consistency
           className="font-bold text-xs uppercase tracking-widest text-[#821fbf] hover:text-purple-800 transition-colors"
         >
@@ -70,7 +70,7 @@ const BlogGrid = () => {
     // Reverted section background to clean white
     <div className="bg-white py-20 px-6">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-2">Our Latest Insights</h2>
+        <h2 className="text-4xl font-extrabold text-gray-900 mt-11 mb-2">Our Latest Insights</h2>
         {/* Accent color updated to Teqnoor purple */}
         <div className="w-20 h-1.5 bg-[#821fbf] mx-auto rounded-full"></div>
       </div>

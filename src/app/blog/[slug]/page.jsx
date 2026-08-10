@@ -94,7 +94,7 @@ export default function BlogDetailPage({ params: paramsPromise }) {
     return (
       <div className="py-20 text-center text-gray-500 font-medium">
         <h2 className="text-2xl font-bold mb-4">Blog post not found!</h2>
-        <Link href="/blogs" className="text-[#027cc1] underline">
+        <Link href="/blog" className="text-[#027cc1] underline">
           ← Return to All Blogs
         </Link>
       </div>
@@ -137,7 +137,7 @@ export default function BlogDetailPage({ params: paramsPromise }) {
         {/* Navigation Footer */}
         <div className="mt-16 pt-8 border-t border-gray-200 flex justify-between items-center">
           <Link
-            href="/blogs"
+            href="/blog"
             className="text-[#ea5408] font-bold hover:underline flex items-center"
           >
             ← Back to All Blogs
