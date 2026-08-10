@@ -434,7 +434,7 @@ export default function AdminBlogs() {
                 <div key={blog._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 20px', backgroundColor: '#faf5ff', border: '1px solid #e9d5ff', borderRadius: '16px' }}>
                   <div>
                     <strong style={{ color: '#1f2937', fontSize: '16px', fontWeight: '700' }}>{blog.title}</strong>
-                    <p style={{ margin: '6px 0 0', color: '#6b7280', fontSize: '13px' }}>Tag: {blog.tag} | Slug: /{blog.slug}</p>
+                    <p style={{ margin: '6px 0 0', color: '#6b7280', fontSize: '13px' }}>Slug: /{blog.slug}</p>
                   </div>
                   <div style={{ display: 'flex', gap: '10px' }}>
                     <button

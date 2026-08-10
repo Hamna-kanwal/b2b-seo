@@ -7,7 +7,7 @@ const BlogSchema = new mongoose.Schema(
     description: { type: String, required: true }, // For the main rich text content
     excerpt: { type: String, required: true },     // Short summary text
     image: { type: String, required: true },       // To store base64 string or URL
-    tag: { type: String, required: true },         // e.g., "Boiler Services", "About"
+    tag: { type: String, default: null },
     pagetitle: { type: String, default: null },     // SEO Meta title
     pageDescription: { type: String, default: null },// SEO Meta description
     keywords: { type: String, default: null },     // SEO Keywords
