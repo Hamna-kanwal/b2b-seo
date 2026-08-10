@@ -1,9 +1,7 @@
 import { Bricolage_Grotesque } from "next/font/google";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/layout/Footer";
-import WhatsAppIcon from "@/components/layout/WhatsAppIcon";
-import Navbar from "@/components/layout/Navbar";
+import LayoutWrapper from "./LayoutWrapper";
 
 const outfit = Outfit({ 
   subsets: ["latin"],
@@ -25,11 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${bricolage.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
-        {/* Floating WhatsApp Button */}
-       <WhatsAppIcon />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
