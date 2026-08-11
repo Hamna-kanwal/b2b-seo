@@ -5,7 +5,7 @@ export default function WhatInclude() {
   const services = [
     {
       title: "Technical SEO ",
-      desc: "Crawlability, indexation, site speed and Core Web Vitals — the foundations that let everything else rank",
+      desc: "Crawlability, indexation, site peed and Core Web Vitals  the foundations that let everything else rank",
       icon: "/images/1.png",
     },
     {
@@ -20,12 +20,12 @@ export default function WhatInclude() {
     },
     {
       title: "B2B Content Creation ",
-      desc: "Bottom-of-funnel pages, comparison content and thought leadership written for decision-makers",
+      desc: "Bottom of funnel pages, comparison content and thought leadership written for decision-makers",
       icon: "/images/4.png",
     },
     {
       title: "Digital PR & Link Building ",
-      desc: " Authority-building links from relevant, credible publications — no directories, no link farms",
+      desc: " Authority building links from relevant, credible publications  no directories, no link farms",
       icon: "/images/5.png",
     },
     {
@@ -35,12 +35,12 @@ export default function WhatInclude() {
     },
     {
       title: "Local & International SEO ",
-      desc: "Visibility in the regions and markets where your buyers are — from UK-wide to multi-country",
+      desc: "Visibility in the regions and markets where your buyers are  from UK-wide to multi country",
       icon: "/images/7.png",
     },
     {
       title: "Reporting & Attribution ",
-      desc: "GA4 and CRM-connected reporting that ties organic search directly to pipeline and revenue",
+      desc: "GA4 and CRM connected reporting that ties organic search directly to pipeline and revenue",
       icon: "/images/8.png",
     },
   ];
@@ -84,7 +84,7 @@ export default function WhatInclude() {
           What our B2B SEO services cover
         </h2>
         <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto pt-2 leading-relaxed font-normal">
-          A complete, fully managed programme — every element handled by senior
+          A complete, fully managed programme every element handled by senior
           specialists and prioritised around commercial impact.
         </p>
       </div>

@@ -10,7 +10,7 @@ export default function Included() {
     },
     {
       title: "Generative Engine Optimisation (GEO) ",
-      desc: "Content structured the way LLMs read — clear entities, direct answers, quotable claims",
+      desc: "Content structured the way LLMs read clear entities, direct answers, quotable claims",
       icon: "/images/2.png",
     },
     {
@@ -30,12 +30,12 @@ export default function Included() {
     },
     {
       title: "AI Overviews Optimisation ",
-      desc: "Targeting the queries where Google shows AI-generated answers — and earning a place in them",
+      desc: "Targeting the queries where Google shows AI-generated answers  and earning a place in them",
       icon: "/images/6.png",
     },
     {
       title: "Digital PR for AI ",
-      desc: "Mentions on the sites and sources LLMs are trained on and retrieve from — the inputs behind the answers",
+      desc: "Mentions on the sites and sources LLMs are trained on and retrieve from  the inputs behind the answers",
       icon: "/images/7.png",
     },
     {
@@ -85,7 +85,7 @@ export default function Included() {
         </h2>
         <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto pt-2 leading-relaxed font-normal">
           A complete programme to make your brand visible, credible and citable
-          across AI search — built on strong traditional SEO foundations.
+          across AI search  built on strong traditional SEO foundations.
         </p>
       </div>
 

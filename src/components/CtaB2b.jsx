@@ -28,7 +28,7 @@ export default function Cta() {
             </h2>
 
             <p className="text-[#B7B7C2] text-[15px] md:text-[18px] leading-relaxed mb-10">
-              Get a senior read on your biggest B2B SEO opportunities — no obligation.
+              Get a senior read on your biggest B2B SEO opportunities  no obligation.
             </p>
 
             {/* Buttons */}

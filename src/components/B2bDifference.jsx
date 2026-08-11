@@ -13,7 +13,7 @@ export default function B2bDifference() {
 
           {/* Toned down from font-[800] to font-[700] / bold */}
           <h2 className="text-[34px] md:text-[44px] font-bold text-[#8A2BE2] leading-[1.15] tracking-tight">
-            B2C tactics don't work in B2B — so we don't use them
+            B2C tactics don't work in B2B  so we don't use them
           </h2>
 
           {/* Lightened body description to normal weight with clean leading */}
@@ -37,11 +37,11 @@ export default function B2bDifference() {
             <ul className="space-y-2.5 text-[14px] md:text-[14.5px] font-normal opacity-90">
               <li className="flex items-start">
                 <span className="mr-2 select-none">•</span>
-                Chase high-volume keywords with no buying intent
+                Chase high volume keywords with no buying intent
               </li>
               <li className="flex items-start">
                 <span className="mr-2 select-none">•</span>
-                Content written for algorithms, not decision-makers
+                Content written for algorithms, not decision makers
               </li>
               <li className="flex items-start">
                 <span className="mr-2 select-none">•</span>
@@ -64,7 +64,7 @@ export default function B2bDifference() {
             <ul className="space-y-2.5 text-[14px] md:text-[14.5px] font-normal opacity-90">
               <li className="flex items-start">
                 <span className="mr-2 select-none">•</span>
-                Target low-volume, high-intent terms your buyers actually search
+                Target low volume, high intent terms your buyers actually search
               </li>
               <li className="flex items-start">
                 <span className="mr-2 select-none">•</span>

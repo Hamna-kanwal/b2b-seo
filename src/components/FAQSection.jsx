@@ -7,22 +7,22 @@ export default function FAQSection() {
     {
       question: "What does a B2B SEO consultant do?",
       answer:
-        "A B2B SEO consultant provides the strategy, prioritisation and expert oversight that gets a business-to-business website ranking for the terms its buyers search. Rather than handing over fixed monthly deliverables, a consultant diagnoses what’s holding the site back, builds a roadmap, and supports your team or agency in executing it — focused on qualified leads, not vanity traffic.",
+        "A B2B SEO consultant provides the strategy, prioritisation and expert oversight that gets a business-to-business website ranking for the terms its buyers search. Rather than handing over fixed monthly deliverables, a consultant diagnoses what’s holding the site back, builds a roadmap, and supports your team or agency in executing it  focused on qualified leads, not vanity traffic.",
     },
     {
       question: "How is a B2B SEO consultant different from an agency?",
       answer:
-        "An agency typically delivers a set package each month. A consultant is senior-led and flexible: you get direct access to the expertise, a plan you can act on immediately, and support that fits around your existing team or agency. It suits companies that need direction and prioritisation more than outsourced execution.",
+        "An agency typically delivers a set package each month. A consultant is senior led and flexible: you get direct access to the expertise, a plan you can act on immediately, and support that fits around your existing team or agency. It suits companies that need direction and prioritisation more than outsourced execution.",
     },
     {
       question: "How much does B2B SEO consulting cost?",
       answer:
-        "Consulting is scoped to where you are. Some clients start with a one-off audit and roadmap; others want an ongoing advisory retainer. We’ll recommend the lightest engagement that gets you results and confirm pricing during your free review — no obligation.",
+        "Consulting is scoped to where you are. Some clients start with a one off audit and roadmap; others want an ongoing advisory retainer. We’ll recommend the lightest engagement that gets you results and confirm pricing during your free review  no obligation.",
     },
     {
       question: "Can you work with our internal team or existing agency?",
       answer:
-        "Yes — that’s a common setup. We provide the B2B SEO strategy and senior oversight while your in-house team or current agency handles delivery, with clear ownership of each area so there’s no overlap or wasted effort.",
+        "Yes that’s a common setup. We provide the B2B SEO strategy and senior oversight while your in-house team or current agency handles delivery, with clear ownership of each area so there’s no overlap or wasted effort.",
     },
     {
       question: "Do you provide strategy only, or implementation too?",

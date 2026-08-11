@@ -28,8 +28,8 @@ export default function AuditCta() {
             </h2>
 
             <p className="text-[#B7B7C2] text-[15px] md:text-[18px] leading-relaxed mb-10">
-              Book a senior-led B2B SEO audit and get a prioritised plan you can
-              start acting on within two weeks — no lock-in, no obligation.{" "}
+              Book a senior led B2B SEO audit and get a prioritised plan you can
+              start acting on within two weeks no lock in, no obligation.{" "}
             </p>
 
             {/* Buttons */}

@@ -12,11 +12,11 @@ export default function WhenToHire() {
     },
     {
       title: "Early movers get compounding advantage ",
-      desc: "AI systems learn from what's already visible and cited. Brands that build authority now become the default answers later — and defaults are hard to displace.",
+      desc: "AI systems learn from what's already visible and cited. Brands that build authority now become the default answers later and defaults are hard to displace.",
     },
     {
       title: "It strengthens your traditional SEO too ",
-      desc: "Almost everything that improves AI visibility — clear structure, strong entities, authoritative content — also improves your Google rankings. It's one investment, two channels.",
+      desc: "Almost everything that improves AI visibility — clear structure, strong entities, authoritative content also improves your Google rankings. It's one investment, two channels.",
     },
   ];
 

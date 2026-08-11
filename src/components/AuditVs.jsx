@@ -19,7 +19,7 @@ export default function AuditVs() {
           {/* Lightened body description to normal weight with clean leading */}
           <p className="text-[16px] md:text-[17px] font-normal text-black leading-[1.5] max-w-[450px]">
             Most “free audits” are a software export with a sales pitch stapled
-            to the back. They tell you what triggered a warning — never why it
+            to the back. They tell you what triggered a warning  never why it
             matters for your business, or what to do about it first.
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function AuditVs() {
           <div className="bg-[#8A2BE2] text-white p-8 md:p-9 rounded-[16px] min-h-[240px] flex flex-col justify-start space-y-4 shadow-sm">
             {/* Reduced heading from font-[700] to font-[600] semi-bold */}
             <h3 className="text-[20px] font-semibold tracking-tight">
-              Our senior-led B2B SEO audit
+              Our senior led B2B SEO audit
             </h3>
             {/* Set text weight to absolute light/normal weight tracking */}
             <ul className="space-y-2.5 text-[14px] md:text-[14.5px] font-normal opacity-90">
@@ -75,7 +75,7 @@ export default function AuditVs() {
               </li>
               <li className="flex items-start">
                 <span className="mr-2 select-none">•</span>
-                A standalone deliverable you own — act on it with anyone
+                A standalone deliverable you own  act on it with anyone
               </li>
             </ul>
           </div>

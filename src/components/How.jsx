@@ -30,7 +30,7 @@ export default function How() {
     {
       title: "Track & Refine ",
       description:
-        "Monthly share-of-voice reporting across ChatGPT, Gemini, Perplexity and AI Overviews — then we refine based on what's moving.",
+        "Monthly share-of-voice reporting across ChatGPT, Gemini, Perplexity and AI Overviews then we refine based on what's moving.",
       isDark: true,
     },
   ];

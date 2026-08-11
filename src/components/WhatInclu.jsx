@@ -10,12 +10,12 @@ export default function WhatInclu() {
     },
     {
       title: "Keyword & Intent Gap Analysis ",
-      desc: "The high-intent terms your buyers search that you're invisible for — and which to target first",
+      desc: "The high-intent terms your buyers search that you're invisible for and which to target first",
       icon: "/images/2.png",
     },
     {
       title: "Content Audit ",
-      desc: "Which pages to improve, consolidate, or cut — and the gaps letting competitors take your buyers",
+      desc: "Which pages to improve, consolidate, or cut and the gaps letting competitors take your buyers",
       icon: "/images/3.png",
     },
     {
@@ -35,7 +35,7 @@ export default function WhatInclu() {
     },
     {
       title: "Conversion Review ",
-      desc: "Why visitors aren't becoming enquiries — landing page, journey and CTA issues costing you leads",
+      desc: "Why visitors aren't becoming enquiries  landing page, journey and CTA issues costing you leads",
       icon: "/images/7.png",
     },
     {

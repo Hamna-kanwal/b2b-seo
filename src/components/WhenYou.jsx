@@ -4,7 +4,7 @@ export default function WhenYou() {
   const benefits = [
     {
       title: "Before you invest in SEO ",
-      desc: "About to commit serious budget? An independent audit shows where that money should go — and where it would be wasted.",
+      desc: "About to commit serious budget? An independent audit shows where that money should go and where it would be wasted.",
     },
     {
       title: "When performance has stalled ",

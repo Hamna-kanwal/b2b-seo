@@ -22,14 +22,14 @@ export default function AiSeo() {
 
           <h1 className="text-[32px] md:text-[54px] font-[800] leading-[1.15] tracking-tight max-w-[1200px] mx-auto text-center px-4">
             The AI SEO Agency That Gets Your Brand
-            <br className="hidden md:block" /> Recommended — Not Just Ranked
+            <br className="hidden md:block" /> Recommended Not Just Ranked
           </h1>
 
           {/* SUBTEXT SECTION */}
           <div className="max-w-5xl mx-auto space-y-10">
             <p className="text-[16px] md:text-[18px] font-[500] leading-relaxed opacity-90 px-4 max-w-[1000px] mx-auto">
               Your buyers aren't just Googling anymore. They're asking ChatGPT,
-              Perplexity and Google's AI Overviews which vendor to shortlist —
+              Perplexity and Google's AI Overviews which vendor to shortlist 
               and getting a direct answer. As a specialist AI SEO agency, we
               make sure that answer includes you. Search is changing; your
               visibility strategy should too.

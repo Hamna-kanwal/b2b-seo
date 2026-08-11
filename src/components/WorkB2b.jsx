@@ -23,7 +23,7 @@ export default function WorkB2b() {
             B2B SEO services built for your industry
           </h2>
           <p className="text-base md:text-lg text-[#0A0C10]/70 max-w-2xl leading-relaxed">
-            We specialise exclusively in business-to-business — companies where
+            We specialise exclusively in business to business companies where
             deals are considered, sales cycles are long, and the right lead
             changes the quarter:{" "}
           </p>

@@ -38,7 +38,7 @@ const cards = [
   {
     title: "Build & optimise",
     description:
-      "We build those pages answer first, schema marked, tied to a product action.You receive a plain-English report with every issue ranked by impact and effort — quick wins flagged for immediate action.",
+      "We build those pages answer first, schema marked, tied to a product action.You receive a plain English report with every issue ranked by impact and effort  quick wins flagged for immediate action.",
     isDark: true,
   },
   {

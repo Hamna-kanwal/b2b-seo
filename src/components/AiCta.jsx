@@ -28,7 +28,7 @@ export default function AiCta() {
             </h2>
 
             <p className="text-[#B7B7C2] text-[15px] md:text-[18px] leading-relaxed mb-10">
-              Get a free AI visibility check — see how ChatGPT, Gemini and Google's AI Overviews describe you today, and where competitors are being recommended instead.
+              Get a free AI visibility check  see how ChatGPT, Gemini and Google's AI Overviews describe you today, and where competitors are being recommended instead.
             </p>
 
             {/* Buttons */}

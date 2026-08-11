@@ -22,7 +22,7 @@ export default function Audit() {
 
           <h1 className="text-[32px] md:text-[54px] font-[800] leading-[1.15] tracking-tight max-w-[1200px] mx-auto text-center px-4">
             A B2B SEO Audit That Tells You Exactly
-            <br className="hidden md:block" /> What's Broken — and What to Fix
+            <br className="hidden md:block" /> What's Broken  and What to Fix
             First
           </h1>
 
@@ -30,7 +30,7 @@ export default function Audit() {
           <div className="max-w-5xl mx-auto space-y-10">
             <p className="text-[16px] md:text-[18px] font-[500] leading-relaxed opacity-90 px-4 max-w-[1000px] mx-auto">
               Traffic flat? Rankings stuck? Leads not coming through? A generic
-              audit will hand you a 90-page PDF of automated warnings. Our B2B
+              audit will hand you a 90 page PDF of automated warnings. Our B2B
               SEO audit is different: a senior specialist manually reviews your
               site through the lens of your buyers and your pipeline, then gives
               you a prioritised action plan in plain English.

@@ -6,7 +6,7 @@ export default function HowIt() {
     {
       title: "Kick-Off Call ",
       description:
-        "A short discovery session on your market, ideal customers and commercial goals — so the audit is judged against what actually matters to you.",
+        "A short discovery session on your market, ideal customers and commercial goals  so the audit is judged against what actually matters to you.",
       isDark: true,
     },
     {
@@ -18,7 +18,7 @@ export default function HowIt() {
     {
       title: "Prioritised Report ",
       description:
-        "You receive a plain-English report with every issue ranked by impact and effort — quick wins flagged for immediate action.",
+        "You receive a plain English report with every issue ranked by impact and effort quick wins flagged for immediate action.",
       isDark: true,
     },
     {
@@ -30,7 +30,7 @@ export default function HowIt() {
     {
       title: "Your Roadmap, Your Choice ",
       description:
-        "Implement it in-house, hand it to your agency, or have us deliver it. The audit stands alone — no strings attached.",
+        "Implement it in-house, hand it to your agency, or have us deliver it. The audit stands alone no strings attached.",
       isDark: true,
     },
   ];

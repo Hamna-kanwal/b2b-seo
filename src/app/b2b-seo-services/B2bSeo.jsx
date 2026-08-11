@@ -30,7 +30,7 @@ export default function B2bSeo() {
             <p className="text-[16px] md:text-[18px] font-[500] leading-relaxed opacity-90 px-4 max-w-[1000px] mx-auto">
               Rankings mean nothing if the right buyers never see them. Our B2B
               SEO services are built for companies with long sales cycles, niche
-              keywords and high-value deals — where one qualified enquiry is
+              keywords and high-value deals where one qualified enquiry is
               worth more than ten thousand random visits. Senior-led, fully
               managed, and measured on leads.
             </p>

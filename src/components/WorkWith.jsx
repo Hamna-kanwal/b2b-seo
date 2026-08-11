@@ -24,7 +24,7 @@ export default function WhoWeWorkWith() {
             AI SEO for B2B brands with considered buyers
           </h2>
           <p className="text-base md:text-lg text-[#0A0C10]/70 max-w-2xl leading-relaxed">
-            AI-assisted research is growing fastest in exactly the markets we specialise in — high-value, high-consideration B2B:
+            AI-assisted research is growing fastest in exactly the markets we specialise in high value, high consideration B2B:
           </p>
         </div>
 

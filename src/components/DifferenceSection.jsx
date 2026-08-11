@@ -13,13 +13,13 @@ export default function DifferenceSection() {
 
           {/* Toned down from font-[800] to font-[700] / bold */}
           <h2 className="text-[34px] md:text-[44px] font-bold text-[#8A2BE2] leading-[1.15] tracking-tight">
-            Direction you can act on — not just monthly deliverables
+            Direction you can act on not just monthly deliverables
           </h2>
 
           {/* Lightened body description to normal weight with clean leading */}
           <p className="text-[16px] md:text-[17px] font-normal text-black leading-[1.5] max-w-[450px]">
-            A full-service agency isn’t always the right call. If you already
-            have people who can execute — or an agency that needs steering — a
+            A full service agency isn’t always the right call. If you already
+            have people who can execute or an agency that needs steering a
             B2B SEO consultant gives you senior strategy and clear priorities
             without the overhead of a full retainer.
           </p>
@@ -31,7 +31,7 @@ export default function DifferenceSection() {
           <div className="bg-black text-white p-8 md:p-9 rounded-[16px] min-h-[240px] flex flex-col justify-start space-y-4 shadow-sm">
             {/* Reduced heading from font-[700] to font-[600] semi-bold */}
             <h3 className="text-[20px] font-semibold tracking-tight">
-              Full-service agency
+              Full service agency
             </h3>
             {/* Set text weight to absolute light/normal weight tracking */}
             <ul className="space-y-2.5 text-[14px] md:text-[14.5px] font-normal opacity-90">
@@ -49,7 +49,7 @@ export default function DifferenceSection() {
               </li>
               <li className="flex items-start">
                 <span className="mr-2 select-none">•</span>
-                Slower to course-correct
+                Slower to course correct
               </li>
             </ul>
           </div>

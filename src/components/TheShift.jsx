@@ -18,7 +18,7 @@ export default function TheShift() {
 
           {/* Lightened body description to normal weight with clean leading */}
           <p className="text-[16px] md:text-[17px] font-normal text-black leading-[1.5] max-w-[450px]">
-            AI assistants don't show ten blue links — they give one synthesised
+            AI assistants don't show ten blue links  they give one synthesised
             answer, citing a handful of sources. If your brand isn't in that
             answer, you're invisible to a growing share of your market. The old
             playbook alone can't fix that.

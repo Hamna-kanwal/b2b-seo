@@ -1,111 +1,73 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import WhatWe from "@/components/WhatWe";
-import Services from "@/components/Services";
-import Industries from "@/components/Industries";
-import Work from "@/components/Work";
-import WhyTeqnoor from "@/components/WhyTeqnoor";
-import SeoCallout from "@/components/SeoCallout";
-import Expect from "@/components/Expect";
-import MainFaq from "@/components/MainFaq";
-import MainCta from "@/components/MainCta";
+import Home from "./Home";
 
-export default function Home() {
+export const metadata = {
+  title: "B2B SEO Agency UK | Rankings, Leads & AI | Teqnoor",
+  description: "B2B SEO services that bring qualified leads, not just rankings. Consultant led, built for search and AI answers. Free SEO review, UK based.",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is B2B SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "B2B SEO is search work for businesses selling to other businesses, where deals are high value and buyers research for weeks. It ranks the pages your buyers find during that research, and increasingly gets you named in AI answers, so search brings you qualified enquiries, not just traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you an agency or a consultant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both in practice. You get the focus and direct access of a consultant, so the person doing the work is the person you speak to, with the full service of an agency across technical, content, and authority. There are no junior handovers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does B2B SEO take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a newer or low authority site, expect early ranking movement in three to six months and steady leads in six to twelve. Low competition industry terms move faster, and head terms take longer, so we focus on the winnable pages first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does B2B SEO cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Work starts with a paid audit, then a scoped monthly retainer based on the pages and links your plan needs. You see the scope before you commit, with no long tie in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with my industry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We focus on B2B and high value fields, with dedicated pages for SaaS, accountancy, law, healthcare, and financial services. If your buyers research before they buy, the approach fits, whether or not your sector is listed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is AI SEO, and do I need it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI SEO gets your brand named and cited by ChatGPT, Gemini, Perplexity, and Google's AI Overviews. As more buyers research with AI, being in those answers matters. It shares the same foundations as classic SEO, so we build both together."
+      }
+    }
+  ]
+};
+
+export default function Page() {
   return (
     <>
-      {/* ADDED pt-24 (and md:pt-28) to push everything cleanly below the fixed navbar */}
-      <main className="min-h-screen bg-gradient-to-b from-[#8A2BE2] to-[#4C187C] flex flex-col items-center text-white font-sans overflow-hidden pt-24 md:pt-28">
-
-        {/* HERO SECTION */}
-        <section className="relative w-full flex flex-col items-center px-4 pt-12 md:pt-20 pb-16 md:pb-24 z-10">
-
-          {/* === DESIGN IMAGES === */}
-          {/* Circle 1: Bottom Left - Shifted a bit up */}
-          <div className="absolute bottom-[5%] left-[-15%] sm:left-[-10%] w-[280px] h-[280px] md:w-[380px] md:h-[380px] pointer-events-none -z-10">
-            <Image
-              src="/images/Ellipse.png"
-              alt="Background circle decorative"
-              fill
-              className="object-contain" />
-          </div>
-
-          {/* Circle 2: Bottom Right - Made smaller and shifted a bit up */}
-          <div className="absolute bottom-[12%] right-[5%] sm:right-[8%] w-[140px] h-[140px] md:w-[200px] md:h-[200px] pointer-events-none -z-10">
-            <Image
-              src="/images/Ellipse2.png"
-              alt="Background circle decorative"
-              fill
-              className="object-contain" />
-          </div>
-
-          {/* Circle 3: Middle Right Background - Made a bit smaller and shifted more up */}
-          <div className="absolute top-[-15%] right-[-20%] sm:right-[-12%] w-[320px] h-[320px] md:w-[480px] md:h-[480px] opacity-[0.15] pointer-events-none -z-20">
-            <Image
-              src="/images/Ellipse1.png"
-              alt="Background giant circle bleed"
-              fill
-              className="object-contain" />
-          </div>
-          {/* ============================== */}
-
-          {/* 
-            === HERO LOGO (Commented out to hand layout control to the global Navbar) ===
-            <div className="relative w-32 h-12 md:w-44 md:h-16 mb-12">
-              <Image
-                src="/images/logo.png"
-                alt="TeqNoor Logo"
-                fill
-                sizes="(min-width: 768px) 176px, 128px"
-                className="object-contain"
-                priority />
-            </div>
-          */}
-
-          {/* Content Container */}
-          <div className="max-w-[1100px] w-full text-center space-y-10">
-
-            <h1 className="text-[32px] md:text-[54px] font-[800] leading-[1.15] tracking-tight max-w-[1200px] mx-auto text-center px-4">
-              B2B SEO that brings qualified leads,
-              <br className="hidden md:block" /> not just rankings
-            </h1>
-
-            {/* SUBTEXT SECTION */}
-            <div className="max-w-5xl mx-auto space-y-10">
-              <p className="text-[16px] md:text-[18px] font-[500] leading-relaxed opacity-90 px-4 max-w-[1000px] mx-auto">
-                Teqnoor is a B2B SEO consultancy for businesses with considered buyers. We help you rank in Google and get named in AI answers, so search brings you real enquiries. You work directly with the specialist doing the work, not a junior account handler.              </p>
-
-              {/* CTA BUTTONS SECTION */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-                <Link
-                  href="#"
-                  className="w-full sm:w-auto bg-white text-[#8A2BE2] font-[700] text-[16px] px-7 py-3.5 rounded-[12px] hover:bg-opacity-95 transition-all text-center shadow-md"
-                >
-                  Get a free SEO review     
-                </Link>
-
-                <Link
-                  href="#"
-                  className="w-full sm:w-auto bg-transparent text-white font-[600] text-[16px] px-7 py-3.5 border border-white rounded-[12px] hover:bg-white hover:text-[#8A2BE2] transition-colors text-center"
-                >
-                  Speak to a B2B SEO specialist
-                </Link>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-      </main>
-      <WhatWe/>
-    <Services/>
-    <Industries/>
-    <Work/>
-    <WhyTeqnoor/>
-    <SeoCallout/>
-    <Expect/>
-    <MainFaq/>
-    <MainCta/>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Home />
     </>
   );
 }

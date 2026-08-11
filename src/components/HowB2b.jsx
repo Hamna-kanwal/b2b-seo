@@ -6,7 +6,7 @@ export default function HowB2b() {
     {
       title: "Discovery",
       description:
-        "We map your market, ideal customer profile and revenue goals so the strategy starts from your business — not a keyword tool.",
+        "We map your market, ideal customer profile and revenue goals so the strategy starts from your business  not a keyword tool.",
       isDark: true,
     },
     {
@@ -18,7 +18,7 @@ export default function HowB2b() {
     {
       title: "Foundation Fixes",
       description:
-        "We resolve the technical and on-page issues holding your site back, starting with the highest-impact items.",
+        "We resolve the technical and on page issues holding your site back, starting with the highest-impact items.",
       isDark: true,
     },
     {
@@ -30,7 +30,7 @@ export default function HowB2b() {
     {
       title: "Measure & Scale ",
       description:
-        "Monthly reporting on leads and pipeline — then we double down on what's working and cut what isn't.",
+        "Monthly reporting on leads and pipeline then we double down on what's working and cut what isn't.",
       isDark: true,
     },
   ];

@@ -7,22 +7,22 @@ export default function B2bFAQ() {
     {
       question: "What are B2B SEO services?",
       answer:
-        "B2B SEO services are search engine optimisation programmes designed specifically for companies that sell to other businesses. They combine technical SEO, keyword research, content creation, link building and conversion optimisation — but focus on the high-intent, often low-volume search terms that decision-makers use, rather than chasing raw traffic. The goal is qualified enquiries and pipeline, not pageviews.",
+        "B2B SEO services are search engine optimisation programmes designed specifically for companies that sell to other businesses. They combine technical SEO, keyword research, content creation, link building and conversion optimisation but focus on the high intent, often low-volume search terms that decision makers use, rather than chasing raw traffic. The goal is qualified enquiries and pipeline, not pageviews.",
     },
     {
       question: "How is B2B SEO different from regular SEO?",
       answer:
-        "The mechanics overlap, but the strategy is fundamentally different. B2B keywords typically have lower search volume but far higher deal value, buying decisions involve multiple stakeholders, and sales cycles can run for months. That means content must serve researchers, evaluators and budget-holders at different stages — and success must be measured in leads and revenue, not traffic.",
+        "The mechanics overlap, but the strategy is fundamentally different. B2B keywords typically have lower search volume but far higher deal value, buying decisions involve multiple stakeholders, and sales cycles can run for months. That means content must serve researchers, evaluators and budget-holders at different stages  and success must be measured in leads and revenue, not traffic.",
     },
     {
       question: "How much do B2B SEO services cost?",
       answer:
-        "Managed B2B SEO programmes are scoped to your market, competition and goals, so pricing varies. After a discovery call and initial review, we provide a fixed, transparent monthly quote with everything included — no hidden fees, no surprise extras, and no long lock-in contracts.",
+        "Managed B2B SEO programmes are scoped to your market, competition and goals, so pricing varies. After a discovery call and initial review, we provide a fixed, transparent monthly quote with everything included no hidden fees, no surprise extras, and no long lock-in contracts.",
     },
     {
       question: "How long does B2B SEO take to show results?",
       answer:
-        "Technical improvements can lift performance within weeks, but meaningful movement on competitive commercial terms typically takes three to six months, with results compounding from there. We set honest expectations upfront based on your starting point and competition — and we report on progress every month so you're never guessing.",
+        "Technical improvements can lift performance within weeks, but meaningful movement on competitive commercial terms typically takes three to six months, with results compounding from there. We set honest expectations upfront based on your starting point and competition  and we report on progress every month so you're never guessing.",
     },
     {
       question: "Do you measure leads or just rankings?",
@@ -32,8 +32,8 @@ export default function B2bFAQ() {
     {
       question: "Can you work alongside our in-house marketing team?",
       answer:
-        "Yes. Many of our clients have internal marketers who handle parts of the work. We flex the scope accordingly — leading strategy and the specialist work while your team covers what they do best. If you'd rather have senior guidance than full delivery, our B2B SEO consultancy (link to homepage) may be the better fit.",
-    },
+        "Yes. Many of our clients have internal marketers who handle parts of the work. We flex the scope accordingly leading strategy and the specialist work while your team covers what they do best. If you'd rather have senior guidance than full delivery, our <a href=\"/\" class=\"underline\">B2B SEO consultancy</a> may be the better fit.",
+  },
   ];
 
   const [openIndex, setOpenIndex] = useState(0);
@@ -86,11 +86,13 @@ export default function B2bFAQ() {
                 </button>
 
                 {/* Answer */}
+             {/* Answer */}
                 {isOpen && (
                   <div className="px-5 md:px-6 py-5 border-t border-[#D7DCE2] bg-[#FFFFFF]">
-                    <p className="text-[17px] leading-[1.7] text-[#444444] max-w-[1100px]">
-                      {faq.answer}
-                    </p>
+                    <div 
+                      className="text-[17px] leading-[1.7] text-[#444444] max-w-[1100px]"
+                      dangerouslySetInnerHTML={{ __html: faq.answer }}
+                    />
                   </div>
                 )}
               </div>

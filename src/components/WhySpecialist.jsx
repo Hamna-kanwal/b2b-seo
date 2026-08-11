@@ -47,7 +47,7 @@ export default function WhySpecialist() {
             </h2>
 
             <p className="text-[19px] leading-[1.75] text-white/90 max-w-[500px]">
-              You don't always need to hand SEO over wholesale — sometimes you
+              You don't always need to hand SEO over wholesale sometimes you
               just need expert direction. If any of these sound familiar, a B2B
               SEO consultant can get you unstuck faster than a full agency
               engagement.
