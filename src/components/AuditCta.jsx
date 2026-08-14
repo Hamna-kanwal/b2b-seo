@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function AuditCta() {
+export default function AuditCta({ onOpenAudit = () => {} }) {
   return (
     <section className="w-full bg-white py-12 md:py-16 px-6">
       <div className="max-w-[1200px] mx-auto">
@@ -35,14 +36,23 @@ export default function AuditCta() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-5">
               {/* Purple Button */}
-              <button className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+              <button
+                type="button"
+                onClick={onOpenAudit}
+                className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+              >
                 Book Your B2B SEO Audit 
               </button>
 
               {/* White Button */}
-              <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+              <Link
+                href="https://wa.me/447918092156?text=Hi%21%20I%27m%20interested%20in%20your%20services.%20Could%20you%20please%20provide%20more%20details%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+              >
                 Speak to a Specialist First 
-              </button>
+              </Link>
             </div>
           </div>
         </div>

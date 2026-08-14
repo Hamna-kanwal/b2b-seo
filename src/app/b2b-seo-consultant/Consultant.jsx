@@ -1,15 +1,21 @@
 "use client";
+import { useState } from "react";
 import DifferenceSection from "@/components/DifferenceSection";
 import ServicesInclude from "@/components/ServicesInclude";
 import WhoWeWorkWith from "@/components/WhoWeWorkWith";
 import HowItWorks from "@/components/HowItWorks";
 import WhySpecialist from "@/components/WhySpecialist";
-import Image from "next/image";
 import Link from "next/link";
+import AuditForm from "@/components/AuditForm";
 import FAQSection from "@/components/FAQSection";
 import CtaB2b from "@/components/CtaB2b";
 
 export default function Consultant() {
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+
+  const openAudit = () => setIsAuditModalOpen(true);
+  const closeAudit = () => setIsAuditModalOpen(false);
+
   return (
     <>
    <main className="min-h-screen bg-gradient-to-b from-[#8A2BE2] to-[#4C187C] flex flex-col items-center text-white font-sans overflow-hidden pt-24 md:pt-28">
@@ -35,18 +41,20 @@ export default function Consultant() {
               {/* CTA BUTTONS SECTION */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
                 <Link
-                  href="#"
+                   href="https://wa.me/447918092156?text=Hi!%20I'm%20interested%20in%20your%20services.%20Could%20you%20please%20provide%20more%20details%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full sm:w-auto bg-white text-[#8A2BE2] font-[700] text-[16px] px-7 py-3.5 rounded-[12px] hover:bg-opacity-95 transition-all text-center shadow-md"
                 >
                   Speak to a B2B SEO Consultant
                 </Link>
 
-                <Link
-                  href="#"
+                <button
+                  onClick={openAudit}
                   className="w-full sm:w-auto bg-transparent text-white font-[600] text-[16px] px-7 py-3.5 border border-white rounded-[12px] hover:bg-white hover:text-[#8A2BE2] transition-colors text-center"
                 >
                   Request a Free SEO Review
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -61,6 +69,7 @@ export default function Consultant() {
       <WhySpecialist />
       <FAQSection />
       <CtaB2b />
+      <AuditForm isOpen={isAuditModalOpen} onClose={closeAudit} />
     </>
   );
 }

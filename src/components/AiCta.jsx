@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function AiCta() {
+export default function AiCta({ onOpenAudit = () => {} }) {
   return (
     <section className="w-full bg-white py-12 md:py-16 px-6">
       <div className="max-w-[1200px] mx-auto">
@@ -34,14 +35,21 @@ export default function AiCta() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-5">
               {/* Purple Button */}
-              <button className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+              <button
+                onClick={onOpenAudit}
+                className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+              >
                Get a Free AI Visibility Check 
               </button>
-
-              {/* White Button */}
-              <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                Book a Strategy Call 
-              </button>
+<Link
+  href="https://calendly.com/teqnoor/understanding-call"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+    Book a Strategy Call 
+  </button>
+</Link>
             </div>
           </div>
         </div>

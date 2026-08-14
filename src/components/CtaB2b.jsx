@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Cta() {
   return (
@@ -34,14 +35,26 @@ export default function Cta() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-5">
               {/* Purple Button */}
-              <button className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                Speak to a B2B SEO Consultant
-              </button>
+              
+              <Link
+                  href="https://wa.me/447918092156?text=Hi!%20I'm%20interested%20in%20your%20services.%20Could%20you%20please%20provide%20more%20details%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+                >
+                  Speak to a B2B SEO specialist
+                </Link>
 
-              {/* White Button */}
-              <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                Book a Strategy Call
-              </button>
+             {/* White Button */}
+<Link
+  href="https://calendly.com/teqnoor/understanding-call"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+    Book a Strategy Call
+  </button>
+</Link>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ export default function AuditForm({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    mobile: "",
     website: "",
     stuff: "",
     honeyPot: "",
@@ -24,8 +25,7 @@ export default function AuditForm({ isOpen, onClose }) {
     }
 
   try {
-      // 🚀 Points to port 3000 on local, and the correct live backend link on production
-      const targetUrl = "https://b2b-seo-api-backend.vercel.app/api/audit";
+      const targetUrl = "/api/audit";
 
       const response = await fetch(targetUrl, {
         method: "POST",
@@ -33,7 +33,7 @@ export default function AuditForm({ isOpen, onClose }) {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          website: formData.website,
+          phone: formData.mobile,
           stuff: formData.stuff,
           honeyPot: formData.honeyPot,
         }),
@@ -46,6 +46,7 @@ export default function AuditForm({ isOpen, onClose }) {
           setFormData({
             name: "",
             email: "",
+            mobile: "",
             website: "",
             stuff: "",
             honeyPot: "",
@@ -155,22 +156,35 @@ export default function AuditForm({ isOpen, onClose }) {
                         }
                       />
                     </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-[11px] font-black uppercase tracking-[0.25em] text-gray-400 ml-1">
-                      Website Link
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      className="w-full px-6 py-4 bg-white border-2 border-[#8A2BE2] rounded-2xl outline-none font-bold text-gray-900 placeholder-gray-300 transition-all shadow-sm"
-                      placeholder="https://www.yourcompany.com"
-                      value={formData.website}
-                      onChange={(e) =>
-                        setFormData({ ...formData, website: e.target.value })
-                      }
-                    />
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-black uppercase tracking-[0.25em] text-gray-400 ml-1">
+                        Mobile Phone
+                      </label>
+                      <input
+                        type="tel"
+                        className="w-full px-6 py-4 bg-white border-2 border-[#8A2BE2] rounded-2xl outline-none font-bold text-gray-900 placeholder-gray-300 transition-all shadow-sm"
+                        placeholder="+91 98765 43210"
+                        value={formData.mobile}
+                        onChange={(e) =>
+                          setFormData({ ...formData, mobile: e.target.value })
+                        }
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-black uppercase tracking-[0.25em] text-gray-400 ml-1">
+                        Website Link
+                      </label>
+                      <input
+                        required
+                        type="text"
+                        className="w-full px-6 py-4 bg-white border-2 border-[#8A2BE2] rounded-2xl outline-none font-bold text-gray-900 placeholder-gray-300 transition-all shadow-sm"
+                        placeholder="https://www.yourcompany.com"
+                        value={formData.website}
+                        onChange={(e) =>
+                          setFormData({ ...formData, website: e.target.value })
+                        }
+                      />
+                    </div>
                   </div>
 
                   <div className="space-y-2">

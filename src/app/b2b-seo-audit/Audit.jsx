@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
 import AuditVs from "@/components/AuditVs";
 import WhatInclu from "@/components/WhatInclu";
@@ -8,8 +8,14 @@ import HowIt from "@/components/HowIt";
 import WhenYou from "@/components/WhenYou";     
 import AuditFaq from "@/components/AuditFaq";
 import AuditCta from "@/components/AuditCta";
+import AuditForm from "@/components/AuditForm";
 
 export default function Audit() {
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+
+  const openAudit = () => setIsAuditModalOpen(true);
+  const closeAudit = () => setIsAuditModalOpen(false);
+
   return (
    <main className="min-h-screen bg-gradient-to-b from-[#8A2BE2] to-[#4C187C] flex flex-col items-center text-white font-sans overflow-hidden pt-24 md:pt-28">
 
@@ -37,19 +43,22 @@ export default function Audit() {
             </p>
             {/* CTA BUTTONS SECTION */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-              <Link
-                href="#"
-                className="w-full sm:w-auto bg-white text-[#8A2BE2] font-[700] text-[16px] px-7 py-3.5 rounded-[12px] hover:bg-opacity-95 transition-all text-center shadow-md"
-              >
-                Book Your B2B SEO Audit 
+                   <Link
+                   href="https://wa.me/447918092156?text=Hi!%20I'm%20interested%20in%20your%20services.%20Could%20you%20please%20provide%20more%20details%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto bg-white text-[#8A2BE2] font-[700] text-[16px] px-7 py-3.5 rounded-[12px] hover:bg-opacity-95 transition-all text-center shadow-md"
+                >
+              
+                Speak to B2B SEO Specialist 
               </Link>
 
-              <Link
-                href="#"
+              <button
+                onClick={openAudit}
                 className="w-full sm:w-auto bg-transparent text-white font-[600] text-[16px] px-7 py-3.5 border border-white rounded-[12px] hover:bg-white hover:text-[#8A2BE2] transition-colors text-center"
               >
                 Get a Free Mini Review First 
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -60,7 +69,8 @@ export default function Audit() {
       <HowIt/>
       <WhenYou/>
       <AuditFaq/>
-        <AuditCta/>
+        <AuditCta onOpenAudit={openAudit} />
+      <AuditForm isOpen={isAuditModalOpen} onClose={closeAudit} />
     </main>
   );
 }

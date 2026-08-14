@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Cta() {
+export default function Cta({ onOpenAudit = () => {} }) {
   return (
     <section className="w-full bg-white py-12 md:py-16 px-6">
       <div className="max-w-[1200px] mx-auto">
@@ -36,14 +37,21 @@ export default function Cta() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-5">
               {/* Purple Button */}
-              <button className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+              <button
+                onClick={onOpenAudit}
+                className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+              >
                 Get a free SEO review     
               </button>
 
-              {/* White Button */}
-              <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                Speak to a B2B SEO specialist
-              </button>
+              <Link
+                  href="https://wa.me/447918092156?text=Hi!%20I'm%20interested%20in%20your%20services.%20Could%20you%20please%20provide%20more%20details%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto bg-white text-[#8A2BE2] font-[600] text-[16px] px-7 py-3.5 border border-white rounded-[12px] hover:bg-white hover:text-[#8A2BE2] transition-colors text-center"
+                >
+                  Speak to a B2B SEO specialist
+                </Link>
             </div>
           </div>
         </div>
