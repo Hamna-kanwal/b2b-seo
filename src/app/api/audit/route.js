@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import { Resend } from "resend";
-import { dbConnect } from "../../../../lib/db.js";
+import { dbConnect } from "../../../../lib/db";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
