@@ -60,7 +60,7 @@ export default function AdminDashboardHub() {
             onClick={handleLogout}
             style={{ 
               padding: '12px 22px', 
-              background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', 
+              background: 'linear-gradient(135deg, #7928CA 0%, #9333EA 100%)', 
               color: '#ffffff', 
               border: 'none', 
               borderRadius: '12px', 
@@ -68,7 +68,7 @@ export default function AdminDashboardHub() {
               fontWeight: '700',
               fontSize: '13px',
               letterSpacing: '0.5px',
-              boxShadow: '0 8px 20px rgba(239, 68, 68, 0.3)',
+              boxShadow: '0 8px 20px rgba(236, 68, 239, 0.3)',
               position: 'relative',
               zIndex: 999,
               transition: 'opacity 0.2s ease'

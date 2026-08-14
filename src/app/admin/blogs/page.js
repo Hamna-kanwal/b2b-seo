@@ -327,7 +327,7 @@ export default function AdminBlogs() {
                 required
                 value={formData.title}
                 onChange={handleTitleChange}
-                placeholder="e.g., Boiler Installation: The Complete Buyer's Guide"
+                placeholder="e.g., B2B SEO Content Strategy: Target Keywords & Article Outlines"
                 style={inputStyle}
               />
             </div>
@@ -339,7 +339,7 @@ export default function AdminBlogs() {
                 required
                 value={formData.slug}
                 onChange={handleSlugChange}
-                placeholder="e.g., boiler-installation-guide"
+                placeholder="e.g., b2b-seo-target"
                 style={inputStyle}
               />
               <p style={{ margin: '8px 0 0', fontSize: '12px', color: '#6b7280' }}>
@@ -424,34 +424,73 @@ export default function AdminBlogs() {
           </form>
         </section>
 
-        <section style={{ backgroundColor: '#ffffff', padding: '35px', borderRadius: '24px', border: '1px solid rgba(121, 40, 202, 0.2)', boxShadow: '0 10px 30px rgba(121, 40, 202, 0.06)' }}>
-          <h2 style={{ color: '#1f2937', marginTop: 0, fontSize: '20px', fontWeight: '700', marginBottom: '20px' }}>Existing Blogs</h2>
-          {blogs.length === 0 ? (
-            <p style={{ color: '#6b7280', fontSize: '14px' }}>No blogs published yet.</p>
-          ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              {currentBlogs.map((blog) => (
-                <div key={blog._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 20px', backgroundColor: '#faf5ff', border: '1px solid #e9d5ff', borderRadius: '16px' }}>
-                  <div>
-                    <strong style={{ color: '#1f2937', fontSize: '16px', fontWeight: '700' }}>{blog.title}</strong>
-                    <p style={{ margin: '6px 0 0', color: '#6b7280', fontSize: '13px' }}>Slug: /{blog.slug}</p>
-                  </div>
-                  <div style={{ display: 'flex', gap: '10px' }}>
-                    <button
-                      onClick={() => handleEditClick(blog)}
-                      style={{ background: 'linear-gradient(135deg, #7928CA 0%, #9333EA 100%)', color: '#fff', border: 'none', padding: '8px 18px', borderRadius: '10px', cursor: 'pointer', fontWeight: '700', fontSize: '13px' }}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDelete(blog.slug)}
-                      style={{ background: '#ef4444', color: '#fff', border: 'none', padding: '8px 18px', borderRadius: '10px', cursor: 'pointer', fontWeight: '700', fontSize: '13px' }}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              ))}
+       <section style={{ backgroundColor: '#ffffff', padding: '35px', borderRadius: '24px', border: '1px solid rgba(121, 40, 202, 0.2)', boxShadow: '0 10px 30px rgba(121, 40, 202, 0.06)' }}>
+  <h2 style={{ color: '#1f2937', marginTop: 0, fontSize: '20px', fontWeight: '700', marginBottom: '20px' }}>Existing Blogs</h2>
+  {blogs.length === 0 ? (
+    <p style={{ color: '#6b7280', fontSize: '14px' }}>No blogs published yet.</p>
+  ) : (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+      {currentBlogs.map((blog) => (
+        <div 
+          key={blog._id} 
+          style={{ 
+            display: 'flex', 
+            flexDirection: window.innerWidth <= 640 ? 'column' : 'row',
+            justifyContent: 'space-between', 
+            alignItems: window.innerWidth <= 640 ? 'flex-start' : 'center', 
+            gap: '15px',
+            padding: '18px 20px', 
+            backgroundColor: '#faf5ff', 
+            border: '1px solid #e9d5ff', 
+            borderRadius: '16px' 
+          }}
+        >
+          <div style={{ wordBreak: 'break-word', width: window.innerWidth <= 640 ? '100%' : 'auto' }}>
+            <strong style={{ color: '#1f2937', fontSize: '16px', fontWeight: '700', display: 'block' }}>{blog.title}</strong>
+            <p style={{ margin: '6px 0 0', color: '#6b7280', fontSize: '13px' }}>Slug: /{blog.slug}</p>
+          </div>
+          
+          <div style={{ 
+            display: 'flex', 
+            gap: '10px', 
+            width: window.innerWidth <= 640 ? '100%' : 'auto', 
+            justifyContent: window.innerWidth <= 640 ? 'flex-end' : 'flex-start' 
+          }}>
+            <button
+              onClick={() => handleEditClick(blog)}
+              style={{ 
+                background: 'linear-gradient(135deg, #7928CA 0%, #9333EA 100%)', 
+                color: '#fff', 
+                border: 'none', 
+                padding: '8px 18px', 
+                borderRadius: '10px', 
+                cursor: 'pointer', 
+                fontWeight: '700', 
+                fontSize: '13px',
+                boxShadow: '0 4px 12px rgba(121, 40, 202, 0.25)'
+              }}
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => handleDelete(blog.slug)}
+              style={{ 
+                background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', 
+                color: '#fff', 
+                border: 'none', 
+                padding: '8px 18px', 
+                borderRadius: '10px', 
+                cursor: 'pointer', 
+                fontWeight: '700', 
+                fontSize: '13px',
+                boxShadow: '0 4px 12px rgba(239, 68, 68, 0.25)'
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      ))}
 
               {totalPages > 1 && (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px', marginTop: '30px' }}>

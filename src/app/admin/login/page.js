@@ -13,7 +13,7 @@ export default function AdminLogin() {
     setError('');
 
     // Demo Hardcoded Credentials (You can move this to .env later)
-    const ADMIN_EMAIL = 'tigertiger@gmail.com';
+    const ADMIN_EMAIL = 'b2bseo@gmail.com';
     const ADMIN_PASS = 'admin1234';
 
     if (email === ADMIN_EMAIL && password === ADMIN_PASS) {
@@ -65,7 +65,7 @@ export default function AdminLogin() {
 
         <h2 style={{ margin: '0 0 6px', color: '#1a1a1a', fontSize: '26px', fontWeight: '800' }}>Admin Portal</h2>
         <p style={{ margin: '0 0 30px', color: '#7928CA', fontSize: '11px', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: '700' }}>
-          Tiger Tiger
+          Login
         </p>
 
         {error && (
@@ -82,7 +82,7 @@ export default function AdminLogin() {
             <input
               type="email"
               required
-              placeholder="tigertiger@gmail.com"
+              placeholder="admin@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               style={{ 
