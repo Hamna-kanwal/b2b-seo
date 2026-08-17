@@ -6,7 +6,7 @@ export default function Services() {
     {
       title: "B2B SEO services",
       desc: "The full programme. Technical, content, and authority work to rank the pages that bring leads.    ",
-      icon: "/images/1.png",
+      icon: "/images/4.png",
     },
     {
       title: "AI SEO (GEO)",
@@ -21,7 +21,7 @@ export default function Services() {
     {
       title: "Free B2B SEO audit",
       desc: "See what is holding your rankings back, and where the quick wins are.",
-      icon: "/images/4.png",
+      icon: "/images/5.png",
     },
    
   ];
