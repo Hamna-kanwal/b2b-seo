@@ -501,10 +501,15 @@ export default function Saas() {
                   Get a free SEO review     
                 </button>
 
-                {/* White Button */}
-                <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+                 {/* White Button */}
+                <Link
+                  href="https://wa.me/447918092156?text=Hi%21%20I%27m%20interested%20in%20your%20services.%20Could%20you%20please%20provide%20more%20details%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+                >
                   Speak to a B2B SEO specialist
-                </button>
+                </Link>
               </div>
             </div>
           </div>
