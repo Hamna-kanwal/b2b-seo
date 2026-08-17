@@ -4,41 +4,48 @@ import Image from "next/image";
 export default function WhatInclu() {
   const services = [
     {
+      number: "01",
       title: "Technical SEO Review ",
       desc: "Crawlability, indexation, site speed, Core Web Vitals and the errors silently capping your rankings",
-      icon: "/images/1.png",
     },
     {
+      number: "02",
       title: "Keyword & Intent Gap Analysis ",
       desc: "The high-intent terms your buyers search that you're invisible for and which to target first",
       icon: "/images/2.png",
     },
     {
+      number: "03",
       title: "Content Audit ",
       desc: "Which pages to improve, consolidate, or cut and the gaps letting competitors take your buyers",
       icon: "/images/3.png",
     },
     {
+      number: "04",
       title: "Competitor Benchmarking",
       desc: "Why the sites outranking you are winning, and the realistic path to overtaking them",
       icon: "/images/4.png",
     },
     {
+      number: "05",
       title: "Backlink & Authority Review ",
       desc: "The strength and quality of your link profile, toxic links to address, and the gap to close",
       icon: "/images/5.png",
     },
     {
+      number: "06",
       title: "On-Page & Structure Review ",
       desc: "Titles, headings, internal linking and site architecture assessed against what your terms demand",
       icon: "/images/6.png",
     },
     {
+      number: "07",
       title: "Conversion Review ",
       desc: "Why visitors aren't becoming enquiries  landing page, journey and CTA issues costing you leads",
       icon: "/images/7.png",
     },
     {
+      number: "08",
       title: "AI Visibility Check ",
       desc: "How ChatGPT, Gemini and Google's AI Overviews currently see and describe your brand",
       icon: "/images/8.png",
@@ -89,31 +96,36 @@ export default function WhatInclu() {
         </p>
       </div>
 
-      {/* GRID */}
-      <div className="max-w-[1240px] w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 z-10">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="bg-[#111319] border border-[#1F232E]/60 rounded-[12px] p-7 flex flex-col items-start justify-start text-left space-y-4 hover:border-[#2C3242]/80 transition-colors duration-200"
-          >
-            <div className="w-[44px] h-[44px] rounded-[8px] bg-[#1A1131] flex items-center justify-center shrink-0">
-              <Image
-                src={service.icon}
-                alt={service.title}
-                width={24}
-                height={24}
-              />
+      {/* GRID CONTAINER WITH UNIVERSAL MOBILE & DESKTOP BORDERS */}
+      <div className="max-w-[1240px] w-full bg-[#111319] border border-[#1F232E] rounded-[16px] overflow-hidden z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        {services.map((service, index) => {
+          return (
+            <div
+              key={index}
+              className={`p-8 flex flex-col justify-between text-left space-y-6 transition-colors duration-200 hover:bg-[#161922] ${
+                index > 0 ? "border-t sm:border-t-0 border-[#1F232E]" : ""
+              } ${index % 2 !== 0 ? "sm:border-l sm:border-[#1F232E]" : ""} ${
+                index >= 2 ? "sm:border-t sm:border-[#1F232E]" : ""
+              } ${index >= 4 ? "lg:border-t lg:border-[#1F232E]" : ""} ${
+                index % 4 !== 0
+                  ? "lg:border-l lg:border-[#1F232E]"
+                  : "lg:border-l-0"
+              }`}
+            >
+              <span className="text-[14px] font-bold text-[#8A2BE2] tracking-wider">
+                {service.number}
+              </span>
+              <div className="space-y-2">
+                <h3 className="text-[17px] font-semibold text-white tracking-tight leading-snug">
+                  {service.title}
+                </h3>
+                <p className="text-[14px] font-normal text-[#8A92A6] leading-relaxed">
+                  {service.desc}
+                </p>
+              </div>
             </div>
-            <div className="space-y-1.5 w-full">
-              <h3 className="text-[16.5px] font-semibold text-white tracking-tight">
-                {service.title}
-              </h3>
-              <p className="text-[14px] font-normal text-[#8A92A6]">
-                {service.desc}
-              </p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
