@@ -88,7 +88,7 @@ export async function POST(request) {
       <div style="font-family: sans-serif; color: #1f2937;">
         <h2 style="color: #8A2BE2; font-size: 18px; letter-spacing: 1px; text-transform: uppercase;">Request Received</h2>
         <p>Hello ${name.split(" ")[0]},</p>
-        <p>Thank you for reaching out to <strong>TeqNoor</strong>. We have received your audit request and our team is currently analyzing your digital presence.</p>
+        <p>Thank you for reaching out to <strong>Teqnoor</strong>. We have received your audit request and our team is currently analyzing your digital presence.</p>
         <p>You can expect your custom report in your inbox within <strong>24 hours</strong>.</p>
         <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 30px 0;" />
         <p style="font-size: 11px; color: #6b7280; letter-spacing: 1px; text-transform: uppercase;">TeqNoor LTD • Global Brand Transformation</p>
