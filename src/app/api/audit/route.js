@@ -97,14 +97,14 @@ export async function POST(request) {
 
     await Promise.allSettled([
       resend.emails.send({
-        from: "TeqNoor Alerts <alerts@b2bseodigitalagency.co.uk>",
+        from: "Teqnoor Alerts <alerts@b2bseodigitalagency.co.uk>",
         to: "alishbaakhtarmay2005@gmail.com",
         // cc: ["kalsoom@teqnoor.com", "amjad@teqnoor.com"],
         subject: `LEAD: ${name}`,
         html: adminTemplate,
       }),
       resend.emails.send({
-        from: "TeqNoor <audit@b2bseodigitalagency.co.uk>",
+        from: "Teqnoor <audit@b2bseodigitalagency.co.uk>",
         to: email,
         subject: "Audit Request Received | TeqNoor",
         html: clientTemplate,
