@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import mongoose from "mongoose";
 import { Resend } from "resend";
 import { dbConnect } from "../../../../lib/db";
+import Audit from "@/models/Audit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -16,6 +16,33 @@ export async function OPTIONS() {
   });
 }
 
+// GET Handler - Used by your Audit Admin Panel to fetch audit requests
+export async function GET() {
+  try {
+    const connection = await dbConnect();
+
+    if (!connection) {
+      return NextResponse.json(
+        { success: false, message: 'Database is not configured' },
+        { status: 503 }
+      );
+    }
+
+    const audits = await Audit.find({}).sort({ createdAt: -1 });
+
+    return NextResponse.json(
+      { success: true, audits },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('Error fetching audits:', error);
+    return NextResponse.json(
+      { success: false, message: 'Failed to fetch audits' },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(request) {
   const corsHeaders = {
     "Access-Control-Allow-Origin": "*",
@@ -28,14 +55,14 @@ export async function POST(request) {
 
     if (honeyPot) {
       return NextResponse.json(
-        { message: "Bot detected" },
+        { success: false, message: "Bot detected" },
         { status: 400, headers: corsHeaders }
       );
     }
 
     if (!name || !email || !email.includes("@")) {
       return NextResponse.json(
-        { error: "Please provide a valid name and email." },
+        { success: false, message: "Please provide a valid name and email." },
         { status: 400, headers: corsHeaders }
       );
     }
@@ -44,28 +71,19 @@ export async function POST(request) {
 
     if (!connection) {
       return NextResponse.json(
-        { error: "Database is not configured." },
+        { success: false, message: "Database is not configured." },
         { status: 503, headers: corsHeaders }
       );
     }
 
-    const db = mongoose.connection.db;
-
-    if (!db) {
-      return NextResponse.json(
-        { error: "Database connection failed." },
-        { status: 503, headers: corsHeaders }
-      );
-    }
-
-    await db.collection("audits").insertOne({
-      name,
-      email,
-      phone,
-      website,
-      stuff,
+    // Save using the Mongoose Audit model
+    await Audit.create({
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone ? phone.trim() : null,
+      website: website ? website.trim() : null,
+      stuff: stuff ? stuff.trim() : "",
       status: "pending",
-      createdAt: new Date(),
     });
 
     const adminTemplate = `
@@ -99,14 +117,13 @@ export async function POST(request) {
       resend.emails.send({
         from: "Teqnoor Alerts <alerts@b2bseodigitalagency.co.uk>",
         to: "alishbaakhtarmay2005@gmail.com",
-        // cc: ["kalsoom@teqnoor.com", "amjad@teqnoor.com"],
         subject: `LEAD: ${name}`,
         html: adminTemplate,
       }),
       resend.emails.send({
         from: "Teqnoor <audit@b2bseodigitalagency.co.uk>",
         to: email,
-        subject: "Audit Request Received | TeqNoor",
+        subject: "Audit Request Received | Teqnoor",
         html: clientTemplate,
       }),
     ]);
@@ -118,7 +135,7 @@ export async function POST(request) {
   } catch (error) {
     console.error("Critical System Error:", error);
     return NextResponse.json(
-      { error: "Something went wrong. Please try again later." },
+      { success: false, message: "Something went wrong. Please try again later." },
       { status: 500, headers: corsHeaders }
     );
   }

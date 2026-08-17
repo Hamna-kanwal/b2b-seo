@@ -81,7 +81,7 @@ export default function AdminDashboardHub() {
         <hr style={{ border: 'none', borderTop: '2px solid rgba(147, 51, 234, 0.2)', marginBottom: '40px' }} />
 
         {/* Dashboard Navigation Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '25px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '25px' }}>
           
           {/* Card 1: Blog Management */}
           <Link href="/admin/blogs" style={{ textDecoration: 'none' }}>
@@ -92,7 +92,8 @@ export default function AdminDashboardHub() {
               border: '1px solid rgba(121, 40, 202, 0.2)', 
               boxShadow: '0 10px 30px rgba(121, 40, 202, 0.06)', 
               transition: 'all 0.25s ease', 
-              cursor: 'pointer' 
+              cursor: 'pointer',
+              height: '100%'
             }}>
               <div style={{ 
                 width: '56px', 
@@ -122,7 +123,8 @@ export default function AdminDashboardHub() {
               border: '1px solid rgba(121, 40, 202, 0.2)', 
               boxShadow: '0 10px 30px rgba(121, 40, 202, 0.06)', 
               transition: 'all 0.25s ease', 
-              cursor: 'pointer' 
+              cursor: 'pointer',
+              height: '100%'
             }}>
               <div style={{ 
                 width: '56px', 
@@ -140,6 +142,37 @@ export default function AdminDashboardHub() {
               </div>
               <h2 style={{ color: '#1f2937', margin: '0 0 10px', fontSize: '20px', fontWeight: '700' }}>Customer Queries</h2>
               <p style={{ color: '#6b7280', margin: 0, fontSize: '14px', lineHeight: '1.6' }}>View and manage incoming contact form submissions from website visitors.</p>
+            </div>
+          </Link>
+
+          {/* Card 3: SEO Audit Requests */}
+          <Link href="/admin/audits" style={{ textDecoration: 'none' }}>
+            <div style={{ 
+              backgroundColor: '#ffffff', 
+              padding: '35px 30px', 
+              borderRadius: '24px', 
+              border: '1px solid rgba(121, 40, 202, 0.2)', 
+              boxShadow: '0 10px 30px rgba(121, 40, 202, 0.06)', 
+              transition: 'all 0.25s ease', 
+              cursor: 'pointer',
+              height: '100%'
+            }}>
+              <div style={{ 
+                width: '56px', 
+                height: '56px', 
+                background: 'linear-gradient(135deg, #7928CA 0%, #9333EA 100%)', 
+                borderRadius: '16px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                fontSize: '24px', 
+                marginBottom: '20px',
+                boxShadow: '0 8px 20px rgba(121, 40, 202, 0.3)'
+              }}>
+                🔍
+              </div>
+              <h2 style={{ color: '#1f2937', margin: '0 0 10px', fontSize: '20px', fontWeight: '700' }}>SEO Audits</h2>
+              <p style={{ color: '#6b7280', margin: 0, fontSize: '14px', lineHeight: '1.6' }}>Track and review incoming SEO audit and analysis requests from clients.</p>
             </div>
           </Link>
 
