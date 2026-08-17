@@ -1,9 +1,15 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import AuditForm from "@/components/AuditForm";
 
 export default function Contact() {
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+
+  const openAudit = () => setIsAuditModalOpen(true);
+  const closeAudit = () => setIsAuditModalOpen(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -186,60 +192,75 @@ export default function Contact() {
         </div>
       </section>
 
-       <section className="w-full bg-[#F9F3FF] py-20 px-6 md:px-12">
-            <div className="max-w-[1240px] mx-auto flex flex-col items-center text-center">
-              <div className="mb-10 space-y-3">
-                <span className="block text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
-                  WHAT HAPPENS NEXT
-                </span>
-                <h2 className="text-[32px] md:text-[44px] font-bold text-[#0A0C10] tracking-tight">
-                  What happens after you get in touch
-                </h2>
-                <p className="text-base md:text-lg text-[#0A0C10]/70 max-w-2xl leading-relaxed mx-auto">
-                  We read every enquiry ourselves and reply, usually within one working day. If it looks like a fit, we will suggest a short call or start with a free SEO review. No hard sell, and no call centre.
-                </p>
+      <section className="w-full bg-[#F9F3FF] py-20 px-6 md:px-12">
+        <div className="max-w-[1240px] mx-auto flex flex-col items-center text-center">
+          <div className="mb-10 space-y-3">
+            <span className="block text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
+              WHAT HAPPENS NEXT
+            </span>
+            <h2 className="text-[32px] md:text-[44px] font-bold text-[#0A0C10] tracking-tight">
+              What happens after you get in touch
+            </h2>
+            <p className="text-base md:text-lg text-[#0A0C10]/70 max-w-2xl leading-relaxed mx-auto">
+              We read every enquiry ourselves and reply, usually within one
+              working day. If it looks like a fit, we will suggest a short call
+              or start with a free SEO review. No hard sell, and no call centre.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* cta */}
+      <section className="w-full bg-white py-12 md:py-16 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="relative overflow-hidden rounded-[36px] bg-[#06060B] px-8 py-16 md:px-16 md:py-20 text-center">
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/images/cta.jpeg"
+                alt="CTA Background"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+
+            <div className="absolute inset-0 bg-black/40 z-0" />
+
+            <div className="relative z-10 max-w-[850px] mx-auto flex flex-col items-center">
+              <h2 className="text-white text-[26px] md:text-[42px] font-bold leading-[1.2] tracking-[-0.03em] mb-5">
+                Prefer to start with a review?{" "}
+              </h2>
+
+              <p className="text-[#B7B7C2] text-[15px] md:text-[18px] leading-relaxed mb-10">
+                Request a free SEO review and we will show you where your
+                rankings stand and what to fix first.{" "}
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row items-center gap-5">
+                {/* Purple Button */}
+                <button
+                  type="button"
+                  onClick={openAudit}
+                  className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+                >
+                  Get a free SEO review
+                </button>
+
+                <Link
+                  href="https://calendly.com/teqnoor/understanding-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+                >
+                  Book a strategy call
+                </Link>
               </div>
             </div>
-          </section>
-      
-          {/* cta */}
-          <section className="w-full bg-white py-12 md:py-16 px-6">
-            <div className="max-w-[1200px] mx-auto">
-              <div className="relative overflow-hidden rounded-[36px] bg-[#06060B] px-8 py-16 md:px-16 md:py-20 text-center">
-                <div className="absolute inset-0 z-0">
-                  <Image
-                    src="/images/cta.jpeg"
-                    alt="CTA Background"
-                    fill
-                    priority
-                    className="object-cover"
-                  />
-                </div>
-      
-                <div className="absolute inset-0 bg-black/40 z-0" />
-      
-                <div className="relative z-10 max-w-[850px] mx-auto flex flex-col items-center">
-                  <h2 className="text-white text-[26px] md:text-[42px] font-bold leading-[1.2] tracking-[-0.03em] mb-5">
-                    Prefer to start with a review?{" "}
-                  </h2>
-      
-                  <p className="text-[#B7B7C2] text-[15px] md:text-[18px] leading-relaxed mb-10">
-                    Request a free SEO review and we will show you where your rankings stand and what to fix first.{" "}
-                  </p>
-      
-                  <div className="flex flex-col sm:flex-row items-center gap-5">
-                    <button className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                      Get a free SEO review
-                    </button>
-      
-                    <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                      Book a strategy call
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          </div>
+        </div>
+      </section>
+      <AuditForm isOpen={isAuditModalOpen} onClose={closeAudit} />
     </main>
   );
 }

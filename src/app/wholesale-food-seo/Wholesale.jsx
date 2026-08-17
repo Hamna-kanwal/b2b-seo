@@ -8,7 +8,6 @@ import ProblemSection from "@/components/ProblemSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyWorkWithUs2 from "@/components/WhyWorkWithUs2";
 import AuditForm from "@/components/AuditForm"; 
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
