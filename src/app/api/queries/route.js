@@ -34,7 +34,7 @@ export async function GET() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { firstName, lastName, email, phone, subject, message } = body;
+    const { firstName, lastName, email, phone, website, subject, message } = body; // <-- Added website here
 
     if (!firstName || !email || !message) {
       return NextResponse.json(
@@ -60,6 +60,7 @@ export async function POST(req) {
       name: fullName, // Saves both ways so q.name always works in the admin UI
       email: email.trim(),
       phone: phone ? phone.trim() : null,
+      website: website ? website.trim() : null, // <-- Added website here
       subject: subject || 'Free Energy Audit Request',
       message: message.trim(),
       status: 'pending',

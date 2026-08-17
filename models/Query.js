@@ -6,7 +6,7 @@ const QuerySchema = new mongoose.Schema({
   name: { type: String },
   email: { type: String, required: true },
   phone: { type: String },
-  subject: { type: String },
+  website: { type: String },
   message: { type: String, required: true },
   status: { type: String, default: 'pending' },
 }, { timestamps: true });

@@ -109,7 +109,7 @@ export default function AdminQueries() {
                     <th style={{ padding: '14px 16px', fontSize: '13px', fontWeight: '700', minWidth: '100px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Date</th>
                     <th style={{ padding: '14px 16px', fontSize: '13px', fontWeight: '700', minWidth: '130px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Name</th>
                     <th style={{ padding: '14px 16px', fontSize: '13px', fontWeight: '700', minWidth: '180px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email / Phone</th>
-                    <th style={{ padding: '14px 16px', fontSize: '13px', fontWeight: '700', minWidth: '140px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Subject</th>
+                    <th style={{ padding: '14px 16px', fontSize: '13px', fontWeight: '700', minWidth: '180px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Website</th>
                     <th style={{ padding: '14px 16px', fontSize: '13px', fontWeight: '700', minWidth: '220px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Message</th>
                   </tr>
                 </thead>
@@ -126,8 +126,14 @@ export default function AdminQueries() {
                         {q.email}<br />
                         <small style={{ color: '#7928CA', fontWeight: '700', fontSize: '12px' }}>{q.phone || 'No phone'}</small>
                       </td>
-                      <td style={{ padding: '14px 16px', color: '#1f2937', fontSize: '13px', wordBreak: 'break-word', fontWeight: '500' }}>
-                        {q.subject || 'N/A'}
+                      <td style={{ padding: '14px 16px', color: '#1f2937', fontSize: '13px', wordBreak: 'break-all' }}>
+                        {q.website ? (
+                          <a href={q.website} target="_blank" rel="noopener noreferrer" style={{ color: '#7928CA', textDecoration: 'underline' }}>
+                            {q.website}
+                          </a>
+                        ) : (
+                          <span style={{ color: '#9ca3af' }}>No website</span>
+                        )}
                       </td>
                       <td style={{ padding: '14px 16px', color: '#4b5563', fontSize: '13px', lineHeight: '1.5', wordBreak: 'break-word' }}>
                         {q.message}

@@ -10,6 +10,7 @@ export default function Contact() {
     email: "",
     phone: "",
     message: "",
+    website: "",
   });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
@@ -40,6 +41,7 @@ export default function Contact() {
           email: "",
           phone: "",
           message: "",
+          website: "",
         });
       } else {
         throw new Error(data.message || "Failed to submit.");
@@ -78,7 +80,6 @@ export default function Contact() {
             </div>
 
             <div className="space-y-10">
-              {/* Email, Mobile, Office, Location blocks remain as previously structured */}
               {[
                 { Icon: Mail, label: "Email", text: "info@teqnoor.com" },
                 { Icon: Phone, label: "Mobile", text: "+44 7918 092156" },
@@ -149,6 +150,15 @@ export default function Contact() {
               className="w-full p-4 border border-gray-200 rounded-2xl outline-none focus:ring-2 focus:ring-[#8A2BE2] transition-all"
             />
             <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="w-full p-4 border border-gray-200 rounded-2xl outline-none focus:ring-2 focus:ring-[#8A2BE2] transition-all"
+            />
+            <input
               type="url"
               name="website"
               placeholder="Website URL"
@@ -177,68 +187,59 @@ export default function Contact() {
       </section>
 
        <section className="w-full bg-[#F9F3FF] py-20 px-6 md:px-12">
-              {/* Updated items-start to items-center and text-left to text-center */}
-              <div className="max-w-[1240px] mx-auto flex flex-col items-center text-center">
-                {/* HEADER */}
-                <div className="mb-10 space-y-3">
-                  <span className="block text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
-                    WHAT HAPPENS NEXT
-                  </span>
-                  <h2 className="text-[32px] md:text-[44px] font-bold text-[#0A0C10] tracking-tight">
-                    What happens after you get in touch
+            <div className="max-w-[1240px] mx-auto flex flex-col items-center text-center">
+              <div className="mb-10 space-y-3">
+                <span className="block text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
+                  WHAT HAPPENS NEXT
+                </span>
+                <h2 className="text-[32px] md:text-[44px] font-bold text-[#0A0C10] tracking-tight">
+                  What happens after you get in touch
+                </h2>
+                <p className="text-base md:text-lg text-[#0A0C10]/70 max-w-2xl leading-relaxed mx-auto">
+                  We read every enquiry ourselves and reply, usually within one working day. If it looks like a fit, we will suggest a short call or start with a free SEO review. No hard sell, and no call centre.
+                </p>
+              </div>
+            </div>
+          </section>
+      
+          {/* cta */}
+          <section className="w-full bg-white py-12 md:py-16 px-6">
+            <div className="max-w-[1200px] mx-auto">
+              <div className="relative overflow-hidden rounded-[36px] bg-[#06060B] px-8 py-16 md:px-16 md:py-20 text-center">
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src="/images/cta.jpeg"
+                    alt="CTA Background"
+                    fill
+                    priority
+                    className="object-cover"
+                  />
+                </div>
+      
+                <div className="absolute inset-0 bg-black/40 z-0" />
+      
+                <div className="relative z-10 max-w-[850px] mx-auto flex flex-col items-center">
+                  <h2 className="text-white text-[26px] md:text-[42px] font-bold leading-[1.2] tracking-[-0.03em] mb-5">
+                    Prefer to start with a review?{" "}
                   </h2>
-                  <p className="text-base md:text-lg text-[#0A0C10]/70 max-w-2xl leading-relaxed mx-auto">
-                    We read every enquiry ourselves and reply, usually within one working day. If it looks like a fit, we will suggest a short call or start with a free SEO review. No hard sell, and no call centre.
+      
+                  <p className="text-[#B7B7C2] text-[15px] md:text-[18px] leading-relaxed mb-10">
+                    Request a free SEO review and we will show you where your rankings stand and what to fix first.{" "}
                   </p>
-                </div>
-              </div>
-            </section>
       
-            {/* cta */}
-            <section className="w-full bg-white py-12 md:py-16 px-6">
-              <div className="max-w-[1200px] mx-auto">
-                {/* CTA Card */}
-                <div className="relative overflow-hidden rounded-[36px] bg-[#06060B] px-8 py-16 md:px-16 md:py-20 text-center">
-                  {/* Background Image */}
-                  <div className="absolute inset-0 z-0">
-                    <Image
-                      src="/images/cta.jpeg"
-                      alt="CTA Background"
-                      fill
-                      priority
-                      className="object-cover"
-                    />
-                  </div>
+                  <div className="flex flex-col sm:flex-row items-center gap-5">
+                    <button className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+                      Get a free SEO review
+                    </button>
       
-                  {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-black/40 z-0" />
-      
-                  {/* Content */}
-                  <div className="relative z-10 max-w-[850px] mx-auto flex flex-col items-center">
-                    <h2 className="text-white text-[26px] md:text-[42px] font-bold leading-[1.2] tracking-[-0.03em] mb-5">
-                      Prefer to start with a review?{" "}
-                    </h2>
-      
-                    <p className="text-[#B7B7C2] text-[15px] md:text-[18px] leading-relaxed mb-10">
-                      Request a free SEO review and we will show you where your rankings stand and what to fix first.{" "}
-                    </p>
-      
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row items-center gap-5">
-                      {/* Purple Button */}
-                      <button className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                        Get a free SEO review
-                      </button>
-      
-                      {/* White Button */}
-                      <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                        Book a strategy call
-                      </button>
-                    </div>
+                    <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+                      Book a strategy call
+                    </button>
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
+          </section>
     </main>
   );
 }
