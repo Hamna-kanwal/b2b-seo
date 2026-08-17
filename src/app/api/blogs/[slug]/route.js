@@ -10,7 +10,8 @@ function validateAdminToken(request) {
 export async function GET(req, { params }) {
   try {
     await dbConnect();
-    const { slug } = params;
+    // Await params for dynamic route segments in Next.js
+    const { slug } = await params;
 
     const blog = await Blog.findOne({ slug });
 
@@ -41,10 +42,12 @@ export async function PUT(req, { params }) {
     }
 
     await dbConnect();
-    const { slug } = params;
+    // Await params here as well
+    const { slug } = await params;
     const body = await req.json();
 
-    const updatedBlog = await Blog.findOneAndUpdate({ slug }, body, { new: true });
+    // Replaced deprecated `new: true` with `returnDocument: 'after'`
+    const updatedBlog = await Blog.findOneAndUpdate({ slug }, body, { returnDocument: 'after' });
 
     if (!updatedBlog) {
       return Response.json({ success: false, message: 'Blog not found' }, { status: 404 });
@@ -67,7 +70,8 @@ export async function DELETE(req, { params }) {
     }
 
     await dbConnect();
-    const { slug } = params;
+    // Await params here as well
+    const { slug } = await params;
     
     const deleted = await Blog.findOneAndDelete({ slug });
 
