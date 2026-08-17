@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { Check } from "lucide-react";
+import { useState } from "react";
+import AuditForm from "@/components/AuditForm";
 
 const cards = [
   {
@@ -30,6 +33,10 @@ const cards = [
 ];
 
 export default function About() {
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+
+  const openAudit = () => setIsAuditModalOpen(true);
+  const closeAudit = () => setIsAuditModalOpen(false);
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#8A2BE2] to-[#4C187C] flex flex-col items-center text-white font-sans overflow-hidden pt-24 md:pt-28">
       {/* HERO SECTION */}
@@ -221,19 +228,26 @@ export default function About() {
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-5">
                 {/* Purple Button */}
-                <button className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
+                <button
+                  type="button"
+                  onClick={openAudit}
+                  className="bg-gradient-to-r from-[#8A2BE2] to-[#A855F7] hover:scale-105 transition-all duration-300 text-white font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg"
+                >
                   Get a free SEO review
                 </button>
 
                 {/* White Button */}
-                <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg">
-                  Contact us
-                </button>
+                <Link href="/contact">
+                  <button className="bg-white hover:bg-[#F5F5F5] hover:scale-105 transition-all duration-300 text-[#8A2BE2] font-semibold text-[16px] px-8 py-4 rounded-2xl shadow-lg cursor-pointer">
+                    Contact us
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <AuditForm isOpen={isAuditModalOpen} onClose={closeAudit} />
     </main>
   );
 }
