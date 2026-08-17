@@ -99,7 +99,7 @@ export async function POST(request) {
       resend.emails.send({
         from: "TeqNoor Alerts <alerts@b2bseodigitalagency.co.uk>",
         to: "alishbaakhtarmay2005@gmail.com",
-        cc: ["kalsoom@teqnoor.com", "amjad@teqnoor.com"],
+        // cc: ["kalsoom@teqnoor.com", "amjad@teqnoor.com"],
         subject: `LEAD: ${name}`,
         html: adminTemplate,
       }),
