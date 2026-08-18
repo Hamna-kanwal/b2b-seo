@@ -70,7 +70,11 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
-          <div className="relative h-16 w-52 cursor-default select-none pointer-events-none flex items-center">
+          {/* Clickable Logo */}
+          <Link
+            href="/"
+            className="relative h-16 w-52 flex items-center transition-opacity hover:opacity-80"
+          >
             <Image
               src="/images/logo2.png"
               alt="Logo"
@@ -78,7 +82,7 @@ export default function Navbar() {
               height={50}
               priority
             />
-          </div>
+          </Link>
 
           <nav
             className="hidden xl:flex items-center gap-6 2xl:gap-8"
@@ -183,7 +187,12 @@ export default function Navbar() {
       >
         <div>
           <div className="flex justify-between items-center mb-8">
-            <div className="relative h-14 w-44 cursor-default select-none pointer-events-none flex items-center">
+            {/* Clickable Logo for Mobile Menu */}
+            <Link
+              href="/"
+              onClick={toggleMenu}
+              className="relative h-14 w-44 flex items-center transition-opacity hover:opacity-80"
+            >
               <Image
                 src="/images/logo2.png"
                 alt="Logo"
@@ -191,7 +200,7 @@ export default function Navbar() {
                 height={50}
                 priority
               />
-            </div>
+            </Link>
             <button
               onClick={toggleMenu}
               className="p-2.5 bg-gray-100 text-slate-800 rounded-full hover:bg-purple-50 hover:text-purple-700 transition-all active:scale-95"
