@@ -105,13 +105,10 @@ export default function Saas() {
     <main className="min-h-screen bg-white flex flex-col items-center text-[#0A0C10] font-sans overflow-hidden pt-24 md:pt-28">
       {/* HERO SECTION */}
       <section className="relative w-full flex flex-col items-center px-4 pt-12 md:pt-20 pb-16 md:pb-24 z-10 overflow-hidden">
-        
         {/* Content Container - Two Column Layout on Desktop */}
         <div className="max-w-[1280px] w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
-
           {/* Left Column: Main Headline, Subtext, Badges & CTA */}
           <div className="flex-1 text-center lg:text-left space-y-8 max-w-[700px]">
-
             {/* Small Top Badge */}
             <div className="inline-flex items-center px-3.5 py-1.5 rounded-full border border-[#8A2BE2]/20 bg-[#F9F3FF] text-[#8A2BE2] text-[13px] font-[500] tracking-wide">
               SAAS SEO AGENCY · UK
@@ -119,13 +116,18 @@ export default function Saas() {
 
             {/* Main Heading */}
             <h1 className="text-[32px] md:text-[52px] lg:text-[56px] font-[800] leading-[1.12] tracking-tight text-[#0A0C10]">
-              SaaS SEO that fills your <span className="text-[#8A2BE2]">pipeline</span>, <br className="hidden md:block" />
+              SaaS SEO that fills your{" "}
+              <span className="text-[#8A2BE2]">pipeline</span>,{" "}
+              <br className="hidden md:block" />
               not just your traffic reports
             </h1>
 
             {/* Subtext */}
             <p className="text-[16px] md:text-[18px] font-[500] leading-relaxed text-[#0A0C10]/70">
-              Software buyers research for weeks and compare tools before they ever book a demo. We help B2B SaaS teams rank for the terms buyers use at that stage, so search brings you trials and demos, not vanity traffic.
+              Software buyers research for weeks and compare tools before they
+              ever book a demo. We help B2B SaaS teams rank for the terms buyers
+              use at that stage, so search brings you trials and demos, not
+              vanity traffic.
             </p>
 
             {/* CTA Buttons */}
@@ -146,7 +148,6 @@ export default function Saas() {
                 Speak to a B2B SEO specialist
               </Link>
             </div>
-
           </div>
 
           {/* Right Column: Larger Graphic Container */}
@@ -161,164 +162,185 @@ export default function Saas() {
               />
             </div>
           </div>
-
         </div>
       </section>
 
       {/* 2section */}
 
       <section className="w-full bg-[#F9F3FF] text-[#0A0C10] py-16 px-6 md:px-12 flex justify-center">
-      <div className="max-w-[1050px] w-full flex flex-col items-start">
-        
-        {/* HEADER SECTION */}
-        <div className="max-w-[750px] mb-10 space-y-2.5 text-left">
-          <span className="block text-[12px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
-            THE CONTRAST
-          </span>
-          <h2 className="text-[28px] md:text-[40px] font-bold text-[#0A0C10] tracking-tight">
-            Generic SEO chases traffic.<br/>
-            SaaS SEO pipeline.
-          </h2>
-          <p className="text-[15px] md:text-[16px] text-[#0A0C10]/70 leading-relaxed">
-            Most SEO aims for clicks. In SaaS, a click means nothing if the visitor never starts a trial. The work has to target the moments buyers are choosing a tool, and tie every page to a trial or a demo.
-          </p>
-        </div>
-
-        {/* TWO CARDS SIDE-BY-SIDE GRID (Compact max-width & padding) */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-          
-          {/* Card 1: Generic SEO Agency */}
-          <div className="bg-white border border-[#8A2BE2]/20 text-[#0A0C10] p-6 rounded-[14px] flex flex-col justify-start space-y-4 shadow-sm">
-            <h3 className="text-[18px] font-bold tracking-tight text-[#0A0C10]">
-              A generic SEO agency
-            </h3>
-            
-            <ul className="space-y-3 text-[13.5px] md:text-[14.5px] font-normal text-[#0A0C10]/80">
-              <li className="flex items-start">
-                <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">•</span>
-                <span>Chases high volume keywords that rarely convert</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">•</span>
-                <span>Treats every visit as a win, whatever the intent</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">•</span>
-                <span>Writes blog traffic with no path to a trial</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">•</span>
-                <span>Ignores comparison and alternative searches</span>
-              </li>
-            </ul>
+        <div className="max-w-[1050px] w-full flex flex-col items-start">
+          {/* HEADER SECTION */}
+          <div className="max-w-[750px] mb-10 space-y-2.5 text-left">
+            <span className="block text-[12px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
+              THE CONTRAST
+            </span>
+            <h2 className="text-[28px] md:text-[40px] font-bold text-[#0A0C10] tracking-tight">
+              Generic SEO chases traffic.
+              <br />
+              SaaS SEO pipeline.
+            </h2>
+            <p className="text-[15px] md:text-[16px] text-[#0A0C10]/70 leading-relaxed">
+              Most SEO aims for clicks. In SaaS, a click means nothing if the
+              visitor never starts a trial. The work has to target the moments
+              buyers are choosing a tool, and tie every page to a trial or a
+              demo.
+            </p>
           </div>
 
-          {/* Card 2: SaaS SEO Specialist (Teqnoor) */}
-          <div className="bg-[#120524] text-white p-6 rounded-[14px] flex flex-col justify-start space-y-4 shadow-xl">
-            <h3 className="text-[18px] font-bold tracking-tight text-white">
-              A SaaS SEO specialist (Teqnoor)
-            </h3>
-            
-            <ul className="space-y-3 text-[13.5px] md:text-[14.5px] font-normal text-white/90">
-              <li className="flex items-start">
-                <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">•</span>
-                <span>Targets bottom of funnel terms buyers use to decide</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">•</span>
-                <span>Measures trials and demos, not raw traffic</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">•</span>
-                <span>Ties every page to a clear product action</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">•</span>
-                <span>Owns the comparison and alternative pages that convert</span>
-              </li>
-            </ul>
+          {/* TWO CARDS SIDE-BY-SIDE GRID (Compact max-width & padding) */}
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+            {/* Card 1: Generic SEO Agency */}
+            <div className="bg-white border border-[#8A2BE2]/20 text-[#0A0C10] p-6 rounded-[14px] flex flex-col justify-start space-y-4 shadow-sm">
+              <h3 className="text-[18px] font-bold tracking-tight text-[#0A0C10]">
+                A generic SEO agency
+              </h3>
+
+              <ul className="space-y-3 text-[13.5px] md:text-[14.5px] font-normal text-[#0A0C10]/80">
+                <li className="flex items-start">
+                  <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">
+                    •
+                  </span>
+                  <span>Chases high volume keywords that rarely convert</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">
+                    •
+                  </span>
+                  <span>Treats every visit as a win, whatever the intent</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">
+                    •
+                  </span>
+                  <span>Writes blog traffic with no path to a trial</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">
+                    •
+                  </span>
+                  <span>Ignores comparison and alternative searches</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 2: SaaS SEO Specialist (Teqnoor) */}
+            <div className="bg-[#120524] text-white p-6 rounded-[14px] flex flex-col justify-start space-y-4 shadow-xl">
+              <h3 className="text-[18px] font-bold tracking-tight text-white">
+                A SaaS SEO specialist (Teqnoor)
+              </h3>
+
+              <ul className="space-y-3 text-[13.5px] md:text-[14.5px] font-normal text-white/90">
+                <li className="flex items-start">
+                  <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">
+                    •
+                  </span>
+                  <span>
+                    Targets bottom of funnel terms buyers use to decide
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">
+                    •
+                  </span>
+                  <span>Measures trials and demos, not raw traffic</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">
+                    •
+                  </span>
+                  <span>Ties every page to a clear product action</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2.5 select-none text-[#8A2BE2] font-bold">
+                    •
+                  </span>
+                  <span>
+                    Owns the comparison and alternative pages that convert
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
-
         </div>
-
-      </div>
-    </section>
+      </section>
 
       {/* 3section */}
       <section className="relative w-full bg-[#0A0C10] text-white py-20 px-6 md:px-12 flex justify-center overflow-hidden">
-      
-      {/* BACKGROUND DECORATIONS */}
-      <div className="absolute left-4 top-[4%] w-[260px] h-[260px] opacity-10 pointer-events-none z-0">
-        <Image
-          src="/images/white.png"
-          alt="decoration"
-          width={260}
-          height={260}
-        />
-      </div>
-
-      <div className="absolute right-[-5%] top-[10%] w-[400px] h-[400px] opacity-10 pointer-events-none z-0">
-        <Image
-          src="/images/Ellipse.png"
-          alt="decoration"
-          width={400}
-          height={400}
-        />
-      </div>
-
-      <div className="absolute right-[5%] top-[50%] w-[250px] h-[250px] opacity-[0.05] pointer-events-none z-0">
-        <Image
-          src="/images/Ellipse1.png"
-          alt="decoration"
-          width={250}
-          height={250}
-        />
-      </div>
-
-      {/* CONTAINER: Two-column desktop layout */}
-      <div className="max-w-[1360px] w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start z-10">
-        
-        {/* LEFT COLUMN: Header Content */}
-        <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-4 text-left">
-          <span className="block text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
-            WHAT'S INCLUDED
-          </span>
-          <h2 className="text-[32px] md:text-[44px] font-bold text-white tracking-tight leading-tight">
-            What this SEO covers
-          </h2>
-          <p className="text-white/90 text-base md:text-lg max-w-md leading-relaxed font-normal pt-1">
-            A programme built around how software gets bought, not how blogs get read.
-          </p>
+        {/* BACKGROUND DECORATIONS */}
+        <div className="absolute left-4 top-[4%] w-[260px] h-[260px] opacity-10 pointer-events-none z-0">
+          <Image
+            src="/images/white.png"
+            alt="decoration"
+            width={260}
+            height={260}
+          />
         </div>
 
-        {/* RIGHT COLUMN: 3x2 Grid with 3rd and 4th cards highlighted in purple */}
-        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
-          {services.map((service, index) => {
-            // Highlight both index 2 and index 3 (3rd and 4th cards)
-            const isHighlighted = index === 2 || index === 3;
-
-            return (
-              <div
-                key={index}
-                className={`rounded-[16px] p-7 flex flex-col items-start justify-start text-left space-y-3 transition-all duration-200 ${
-                  isHighlighted
-                    ? "bg-[#8A2BE2] text-white shadow-lg shadow-purple-900/30 border border-purple-400/30"
-                    : "bg-[#12151D] border border-[#1F232E]/80 text-white hover:border-[#2C3242]"
-                }`}
-              >
-                <h3 className={`text-[17px] md:text-[18px] font-bold tracking-tight ${isHighlighted ? "text-white" : "text-white"}`}>
-                  {service.title}
-                </h3>
-                <p className={`text-[14px] leading-relaxed font-normal ${isHighlighted ? "text-white/90" : "text-[#8A92A6]"}`}>
-                  {service.desc}
-                </p>
-              </div>
-            );
-          })}
+        <div className="absolute right-[-5%] top-[10%] w-[400px] h-[400px] opacity-10 pointer-events-none z-0">
+          <Image
+            src="/images/Ellipse.png"
+            alt="decoration"
+            width={400}
+            height={400}
+          />
         </div>
 
-      </div>
-    </section>
+        <div className="absolute right-[5%] top-[50%] w-[250px] h-[250px] opacity-[0.05] pointer-events-none z-0">
+          <Image
+            src="/images/Ellipse1.png"
+            alt="decoration"
+            width={250}
+            height={250}
+          />
+        </div>
+
+        {/* CONTAINER: Two-column desktop layout */}
+        <div className="max-w-[1360px] w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start z-10">
+          {/* LEFT COLUMN: Header Content */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-4 text-left">
+            <span className="block text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
+              WHAT'S INCLUDED
+            </span>
+            <h2 className="text-[32px] md:text-[44px] font-bold text-white tracking-tight leading-tight">
+              What this SEO covers
+            </h2>
+            <p className="text-white/90 text-base md:text-lg max-w-md leading-relaxed font-normal pt-1">
+              A programme built around how software gets bought, not how blogs
+              get read.
+            </p>
+          </div>
+
+          {/* RIGHT COLUMN: 3x2 Grid with 3rd and 4th cards highlighted in purple */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
+            {services.map((service, index) => {
+              // Highlight both index 2 and index 3 (3rd and 4th cards)
+              const isHighlighted = index === 2 || index === 3;
+
+              return (
+                <div
+                  key={index}
+                  className={`rounded-[16px] p-7 flex flex-col items-start justify-start text-left space-y-3 transition-all duration-200 ${
+                    isHighlighted
+                      ? "bg-[#8A2BE2] text-white shadow-lg shadow-purple-900/30 border border-purple-400/30"
+                      : "bg-[#12151D] border border-[#1F232E]/80 text-white hover:border-[#2C3242]"
+                  }`}
+                >
+                  <h3
+                    className={`text-[17px] md:text-[18px] font-bold tracking-tight ${isHighlighted ? "text-white" : "text-white"}`}
+                  >
+                    {service.title}
+                  </h3>
+                  <p
+                    className={`text-[14px] leading-relaxed font-normal ${isHighlighted ? "text-white/90" : "text-[#8A92A6]"}`}
+                  >
+                    {service.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
       {/* 4section */}
       <section className="w-full bg-[#F9F3FF] py-20 px-6 md:px-12">
         {/* Changed items-center to items-start and text-center to text-left */}
@@ -409,40 +431,38 @@ export default function Saas() {
         </div>
       </section>
       {/* 6section */}
-    <section className="w-full bg-white py-20 px-6 md:px-12">
-      <div className="max-w-[1240px] mx-auto flex flex-col items-start text-left">
-        
-        {/* HEADER */}
-        <div className="mb-14 space-y-3">
-          <span className="block text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
-            WHY NOW
-          </span>
-          <h2 className="text-[32px] md:text-[44px] font-bold text-[#0A0C10] tracking-tight">
-               Why SaaS SEO can't wait
-          </h2>
-        </div>
+      <section className="w-full bg-white py-20 px-6 md:px-12">
+        <div className="max-w-[1240px] mx-auto flex flex-col items-start text-left">
+          {/* HEADER */}
+          <div className="mb-14 space-y-3">
+            <span className="block text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
+              WHY NOW
+            </span>
+            <h2 className="text-[32px] md:text-[44px] font-bold text-[#0A0C10] tracking-tight">
+              Why SaaS SEO can't wait
+            </h2>
+          </div>
 
-        {/* CARDS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-          {benefits.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white border-2 border-[#8A2BE2] rounded-[20px] p-8 md:p-10 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between"
-            >
-              <div>
-                <h3 className="text-[20px] font-bold tracking-tight text-[#0A0C10] mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-[16px] leading-[1.6] text-gray-600">
-                  {item.desc}
-                </p>
+          {/* CARDS GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            {benefits.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white border-2 border-[#8A2BE2] rounded-[20px] p-8 md:p-10 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="text-[20px] font-bold tracking-tight text-[#0A0C10] mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-[16px] leading-[1.6] text-gray-600">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
-      </div>
-    </section>
+      </section>
       <SaasFaq />
       {/* section 8 */}
       <section className="w-full bg-white py-12 md:py-16 px-6">
