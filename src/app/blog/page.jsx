@@ -4,13 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const BlogCard = ({ title, excerpt, image, slug }) => (
-  // Reverted to plain white background, matching the reference design.
   <div className="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 mt-12 border border-gray-100">
     <div className="relative h-56 w-full overflow-hidden">
-      {/* Gradient overlay updated to match Teqnoor branding */}
       <div className="absolute inset-0 bg-gradient-to-t from-purple-950/60 to-transparent z-10" />
       <img      
-        src={image || '/teqnoor-default.jpg'} // Replace with your default image
+        src={image || '/teqnoor-default.jpg'} 
         alt={title} 
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
       />
@@ -27,7 +25,6 @@ const BlogCard = ({ title, excerpt, image, slug }) => (
       <div className="text-center">
         <Link 
           href={`/blog/${encodeURIComponent(slug)}`} 
-          // Changed text color to Teqnoor purple for consistency
           className="font-bold text-xs uppercase tracking-widest text-[#821fbf] hover:text-purple-800 transition-colors"
         >
           Read More →
@@ -60,18 +57,16 @@ const BlogGrid = () => {
 
   if (loading) {
     return (
-      <div className="bg-white py-20 text-center text-gray-500 font-medium">
+      <div className="bg-white min-h-[400px] w-full flex items-center justify-center py-20 text-gray-500 font-medium">
         Loading insights...
       </div>
     );
   }
 
   return (
-    // Reverted section background to clean white
     <div className="bg-white py-20 px-6">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold text-gray-900 mt-11 mb-2">Our Latest Insights</h2>
-        {/* Accent color updated to Teqnoor purple */}
         <div className="w-20 h-1.5 bg-[#821fbf] mx-auto rounded-full"></div>
       </div>
       
@@ -93,7 +88,6 @@ const BlogGrid = () => {
           ))}
         </div>
       )}
-      {/* Optional: Add the WhatsApp button from your reference image here */}
     </div>
   );
 };
