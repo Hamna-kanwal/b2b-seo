@@ -307,37 +307,40 @@ export default function Accountants() {
             </p>
           </div>
 
-          {/* RIGHT COLUMN: 3x2 Grid with 3rd and 4th cards highlighted in purple */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
-            {services.map((service, index) => {
-              // Highlight both index 2 and index 3 (3rd and 4th cards)
-              const isHighlighted = index === 2 || index === 3;
+        {/* RIGHT COLUMN: 3x2 Grid where 2nd row has left card purple and right card black */}
+        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
+          {services.map((service, index) => {
+            let isHighlighted = false;
+            if (index === 1 || index === 2 || index === 5) {
+              isHighlighted = true;
+            }
 
-              return (
-                <div
-                  key={index}
-                  className={`rounded-[16px] p-7 flex flex-col items-start justify-start text-left space-y-3 transition-all duration-200 ${
-                    isHighlighted
-                      ? "bg-[#8A2BE2] text-white shadow-lg shadow-purple-900/30 border border-purple-400/30"
-                      : "bg-[#12151D] border border-[#1F232E]/80 text-white hover:border-[#2C3242]"
-                  }`}
+            return (
+              <div
+                key={index}
+                className={`rounded-[16px] p-7 flex flex-col items-start justify-start text-left space-y-3 transition-all duration-200 ${
+                  isHighlighted
+                    ? "bg-[#8A2BE2] text-white shadow-lg shadow-purple-900/30 border border-purple-400/30"
+                    : "bg-[#12151D] border border-[#1F232E]/80 text-white hover:border-[#2C3242]"
+                }`}
+              >
+                <h3
+                  className={`text-[17px] md:text-[18px] font-bold tracking-tight ${isHighlighted ? "text-white" : "text-white"}`}
                 >
-                  <h3
-                    className={`text-[17px] md:text-[18px] font-bold tracking-tight ${isHighlighted ? "text-white" : "text-white"}`}
-                  >
-                    {service.title}
-                  </h3>
-                  <p
-                    className={`text-[14px] leading-relaxed font-normal ${isHighlighted ? "text-white/90" : "text-[#8A92A6]"}`}
-                  >
-                    {service.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+                  {service.title}
+                </h3>
+                <p
+                  className={`text-[14px] leading-relaxed font-normal ${isHighlighted ? "text-white/90" : "text-[#8A92A6]"}`}
+                >
+                  {service.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
-      </section>
+
+      </div>
+    </section>
       {/* 4section */}
       <section className="w-full bg-[#F9F3FF] py-20 px-6 md:px-12">
         {/* Changed items-center to items-start and text-center to text-left */}
