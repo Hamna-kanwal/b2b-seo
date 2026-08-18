@@ -95,7 +95,7 @@ const industries = [
   "Payroll bureaus",
   "Multi-office practices",
 ];
-export default function Saas() {
+export default function Accountants() {
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
 
   const openAudit = () => setIsAuditModalOpen(true);
@@ -152,8 +152,8 @@ export default function Saas() {
           <div className="w-full lg:w-[600px] flex justify-center items-center shrink-0">
             <div className="relative w-full h-[440px] md:h-[520px]">
               <Image
-                src="/images/saas.png"
-                alt="SaaS SEO Dashboard"
+                src="/images/accounts.jpeg"
+                alt="Accountants"
                 fill
                 className="object-contain scale-105 md:scale-110"
                 priority
@@ -222,8 +222,7 @@ export default function Saas() {
               </ul>
             </div>
 
-            {/* Card 2: Qualified B2B Demand */}
-            {/* Card 2: SaaS SEO Specialist (Teqnoor) */}
+            {/* Card 2:  (Teqnoor) */}
             <div className="bg-[#120524] text-white p-6 rounded-[14px] flex flex-col justify-start space-y-4 shadow-xl">
               <h3 className="text-[18px] font-bold tracking-tight text-white">
                 A specialist for accountants (Teqnoor)
@@ -429,7 +428,8 @@ export default function Saas() {
         </div>
       </section>
       {/* 6section */}
-      <section className="w-full bg-white py-20 px-6 md:px-12">
+      <section className="w-full bg-[#F9F3FF] py-20 px-6 md:px-12">
+        {" "}
         <div className="max-w-[1240px] mx-auto flex flex-col items-start text-left">
           {/* HEADER */}
           <div className="mb-14 space-y-3">

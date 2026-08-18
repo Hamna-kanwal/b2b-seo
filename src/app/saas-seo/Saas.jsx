@@ -431,7 +431,8 @@ export default function Saas() {
         </div>
       </section>
       {/* 6section */}
-      <section className="w-full bg-white py-20 px-6 md:px-12">
+      <section className="w-full bg-[#F9F3FF] py-20 px-6 md:px-12">
+        {" "}
         <div className="max-w-[1240px] mx-auto flex flex-col items-start text-left">
           {/* HEADER */}
           <div className="mb-14 space-y-3">
