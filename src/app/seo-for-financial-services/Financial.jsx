@@ -111,8 +111,9 @@ export default function Financial() {
             </div>
             {/* Main Heading */}
             <h1 className="text-[32px] md:text-[52px] lg:text-[56px] font-[800] leading-[1.12] tracking-tight text-[#0A0C10]">
-              EO for financial services that earns
-              <span className="text-[#8A2BE2]"> enquiries</span>, <br /> within the rules
+              SEO for financial services that earns
+              <span className="text-[#8A2BE2]"> enquiries</span>, <br /> within
+              the rules
             </h1>
             {/* Subtext */}
             <p className="text-[16px] md:text-[18px] font-[500] leading-relaxed text-[#0A0C10]/70">
