@@ -144,13 +144,13 @@ export default function About() {
       <div className="w-full bg-[#0A0C10] rounded-[24px] overflow-hidden shadow-xl border border-gray-100 p-2">
         <img
           src="/path-to-your-founder-image.jpg"
-          alt="Aamir Ehsan - Founder, Teqnoor"
+          alt="Deeva Zafari"
           className="w-full h-[380px] sm:h-[420px] object-cover rounded-[20px]"
         />
       </div>
       <div className="mt-4 px-1">
-        <h3 className="text-base font-bold text-gray-900">Aamir Ehsan</h3>
-        <p className="text-sm text-gray-500 font-medium">Founder, Teqnoor</p>
+        <h3 className="text-base font-bold text-gray-900">Deeva Zafari</h3>
+        <p className="text-sm text-gray-500 font-medium">Co-Founder & Director, Teqnoor</p>
       </div>
     </div>
 
@@ -165,8 +165,8 @@ export default function About() {
       </h2>
 
       <p className="text-base md:text-lg text-gray-600 leading-relaxed font-normal">
-        Teqnoor is led by its founder,{" "}
-        <span className="font-semibold text-gray-900">Aamir Ehsan</span>.
+        Teqnoor is led by its Co-Founder & Director,{" "}
+        <span className="font-semibold text-gray-900">Deeva Zafari</span>.
         When you partner with us, you collaborate directly with the
         specialist. No junior teams learning on your account, and no
         account managers playing telephone. Just sharper strategy,
