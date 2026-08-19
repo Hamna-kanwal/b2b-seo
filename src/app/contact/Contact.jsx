@@ -60,17 +60,22 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#8A2BE2] to-[#4C187C] flex flex-col items-center text-white font-sans overflow-hidden pt-24 md:pt-28">
+ <main className="min-h-screen bg-[#130628] flex flex-col items-start text-white font-sans overflow-hidden pt-24 md:pt-28">
       {/* HERO SECTION */}
-      <section className="relative w-full flex flex-col items-center px-4 pt-12 md:pt-20 pb-16 md:pb-24 z-10">
-        <div className="max-w-[1100px] w-full text-center space-y-10">
-          <h1 className="text-[32px] md:text-[54px] font-[800] leading-[1.15] tracking-tight text-center px-4">
+      <section className="relative w-full flex flex-col items-start px-6 sm:px-12 md:px-20 pt-12 md:pt-20 pb-16 md:pb-24 z-10">
+        <div className="max-w-[1100px] w-full text-left space-y-6">
+          
+          {/* Main Title */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.15] text-white">
             Contact us
           </h1>
-          <p className="max-w-3xl mx-auto text-[16px] md:text-[19px] font-[500] leading-relaxed opacity-90">
+
+          {/* Subtitle description */}
+          <p className="max-w-2xl text-base sm:text-lg font-normal text-purple-200/80 leading-relaxed">
             Get in touch with Teqnoor for B2B SEO and AI SEO. Call, email, or
             send the form below. The quickest way to start is a free SEO review.
           </p>
+
         </div>
       </section>
 
