@@ -29,12 +29,12 @@ export default function WhoFor() {
           </p>
         </div>
 
-        {/* PILLS CONTAINER - Changed justify-center to justify-start */}
-        <div className="flex flex-wrap justify-start gap-3 md:gap-4">
+        {/* PILLS CONTAINER - Flex container with proper spacing that wraps cleanly without cropping */}
+        <div className="flex flex-wrap items-center justify-start gap-3 md:gap-4 w-full">
           {industries.map((industry, index) => (
-            <div
+            <div 
               key={index}
-              className="px-6 py-3 rounded-full border border-[#8A2BE2]/30 text-[#8A2BE2] bg-white/50 font-medium text-[15px] hover:bg-white hover:shadow-sm transition-all duration-200 cursor-default"
+              className="px-5 py-3 rounded-full border border-[#8A2BE2]/30 text-[#8A2BE2] bg-white/60 font-medium text-[14px] md:text-[15px] hover:bg-white hover:shadow-sm transition-all duration-200 cursor-default whitespace-nowrap"
             >
               {industry}
             </div>
