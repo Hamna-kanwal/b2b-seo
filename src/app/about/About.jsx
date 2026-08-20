@@ -146,44 +146,24 @@ export default function About() {
   </div>
 </section>
 {/* founder-led section */}
-     <section className="w-full bg-white py-20 px-6 md:px-12">
-  <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-    
-    {/* Left Column: Image Card */}
-    <div className="lg:col-span-5 flex flex-col items-start">
-      <div className="w-full bg-[#0A0C10] rounded-[24px] overflow-hidden shadow-xl border border-gray-100 p-2">
-        <img
-          src="/path-to-your-founder-image.jpg"
-          alt="Deeva Zafari"
-          className="w-full h-[380px] sm:h-[420px] object-cover rounded-[20px]"
-        />
-      </div>
-      <div className="mt-4 px-1">
-        <h3 className="text-base font-bold text-gray-900">Deeva Zafari</h3>
-        <p className="text-sm text-gray-500 font-medium">Co-Founder & Director, Teqnoor</p>
-      </div>
-    </div>
+<section className="w-full bg-white py-20 px-6 md:px-12">
+  <div className="max-w-[800px] mx-auto flex flex-col items-center text-center space-y-6">
+    <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
+      Founder led
+    </span>
 
-    {/* Right Column: Content */}
-    <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
-      <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#8A2BE2]">
-        Founder led
-      </span>
+    <h2 className="text-[32px] md:text-[44px] font-bold text-[#0A0C10] tracking-tight leading-[1.1]">
+      Work with the specialist, not a handler
+    </h2>
 
-      <h2 className="text-[32px] md:text-[44px] font-bold text-[#0A0C10] tracking-tight leading-[1.1]">
-        Work with the specialist, not a handler
-      </h2>
-
-      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-normal">
-        Teqnoor is led by its Co-Founder & Director,{" "}
-        <span className="font-semibold text-gray-900">Deeva Zafari</span>.
-        When you partner with us, you collaborate directly with the
-        specialist. No junior teams learning on your account, and no
-        account managers playing telephone. Just sharper strategy,
-        faster decisions, and complete accountability for your results.
-      </p>
-    </div>
-
+    <p className="text-base md:text-lg text-gray-600 leading-relaxed font-normal max-w-[700px]">
+      Teqnoor is led by its Co-Founder & Director,{" "}
+      <span className="font-semibold text-gray-900">Deeva Zafari</span>.
+      When you partner with us, you collaborate directly with the
+      specialist. No junior teams learning on your account, and no
+      account managers playing telephone. Just sharper strategy,
+      faster decisions, and complete accountability for your results.
+    </p>
   </div>
 </section>
 
