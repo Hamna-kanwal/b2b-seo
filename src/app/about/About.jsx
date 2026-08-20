@@ -38,12 +38,12 @@ export default function About() {
   const openAudit = () => setIsAuditModalOpen(true);
   const closeAudit = () => setIsAuditModalOpen(false);
   return (
-   <main className="min-h-screen bg-[#130628] flex flex-col items-start text-white font-sans overflow-hidden pt-24 md:pt-28">
+ <main className="min-h-screen bg-[#130628] flex flex-col items-start text-white font-sans overflow-hidden pt-24 md:pt-28">
   {/* HERO SECTION */}
-  <section className="relative w-full flex flex-col items-start px-6 sm:px-12 md:px-20 pt-12 md:pt-20 pb-16 md:pb-24 z-10">
+  <section className="relative w-full flex flex-col lg:flex-row items-center justify-between px-6 sm:px-12 md:px-20 pt-12 md:pt-20 pb-16 md:pb-24 z-10 gap-12 max-w-[1400px] mx-auto">
     
     {/* Content Container */}
-    <div className="max-w-[1100px] w-full text-left space-y-8">
+    <div className="flex-1 max-w-[650px] text-left space-y-8">
       <h1 className="text-[32px] md:text-[54px] font-[800] leading-[1.15] tracking-tight text-left text-white">
         About Teqnoor
       </h1>
@@ -59,6 +59,16 @@ export default function About() {
         </p>
       </div>
     </div>
+
+    {/* Graphic Container */}
+    <div className="flex-1 w-full max-w-[500px] flex justify-center lg:justify-end">
+      <img 
+        src="/images/about.png" 
+        alt="About Teqnoor" 
+        className="w-full h-auto object-contain drop-shadow-2xl"
+      />
+    </div>
+
   </section>
 
       {/* APPROACH SECTION */}

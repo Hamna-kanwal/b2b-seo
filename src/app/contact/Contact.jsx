@@ -61,24 +61,35 @@ export default function Contact() {
 
   return (
  <main className="min-h-screen bg-[#130628] flex flex-col items-start text-white font-sans overflow-hidden pt-24 md:pt-28">
-      {/* HERO SECTION */}
-      <section className="relative w-full flex flex-col items-start px-6 sm:px-12 md:px-20 pt-12 md:pt-20 pb-16 md:pb-24 z-10">
-        <div className="max-w-[1100px] w-full text-left space-y-6">
-          
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.15] text-white">
-            Contact us
-          </h1>
+  {/* HERO SECTION */}
+  <section className="relative w-full flex flex-col lg:flex-row items-center justify-between px-6 sm:px-12 md:px-20 pt-12 md:pt-20 pb-16 md:pb-24 z-10 gap-12 max-w-[1400px] mx-auto">
+    
+    {/* Content Container */}
+    <div className="flex-1 max-w-[650px] text-left space-y-6">
+      
+      {/* Main Title */}
+      <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.15] text-white">
+        Contact us
+      </h1>
 
-          {/* Subtitle description */}
-          <p className="max-w-2xl text-base sm:text-lg font-normal text-purple-200/80 leading-relaxed">
-            Get in touch with Teqnoor for B2B SEO and AI SEO. Call, email, or
-            send the form below. The quickest way to start is a free SEO review.
-          </p>
+      {/* Subtitle description */}
+      <p className="max-w-2xl text-base sm:text-lg font-normal text-purple-200/80 leading-relaxed">
+        Get in touch with Teqnoor for B2B SEO and AI SEO. Call, email, or
+        send the form below. The quickest way to start is a free SEO review.
+      </p>
 
-        </div>
-      </section>
+    </div>
 
+    {/* Graphic Container */}
+    <div className="flex-1 w-full max-w-[500px] flex justify-center lg:justify-end">
+      <img 
+        src="/images/contact.png" 
+        alt="Contact Teqnoor" 
+        className="w-full h-auto object-contain drop-shadow-2xl"
+      />
+    </div>
+
+  </section>
       {/* Form Section */}
       <section className="py-16 px-4 md:px-24 w-full bg-gray-50 text-gray-900">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24">

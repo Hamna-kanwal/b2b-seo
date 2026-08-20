@@ -146,8 +146,8 @@ export default function Financial() {
           <div className="w-full lg:w-[600px] flex justify-center items-center shrink-0">
             <div className="relative w-full h-[440px] md:h-[520px]">
               <Image
-                src="/images/health.png"
-                alt="Healthcare"
+                src="/images/financial.png"
+                alt="Financial Services"
                 fill
                 className="object-contain scale-105 md:scale-110"
                 priority
