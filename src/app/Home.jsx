@@ -56,18 +56,6 @@ export default function Home() {
           </div>
           {/* ============================== */}
 
-          {/* 
-            === HERO LOGO (Commented out to hand layout control to the global Navbar) ===
-            <div className="relative w-32 h-12 md:w-44 md:h-16 mb-12">
-              <Image
-                src="/images/logo.png"
-                alt="TeqNoor Logo"
-                fill
-                sizes="(min-width: 768px) 176px, 128px"
-                className="object-contain"
-                priority />
-            </div>
-          */}
 
           {/* Content Container */}
           <div className="max-w-[1100px] w-full text-center space-y-10">
