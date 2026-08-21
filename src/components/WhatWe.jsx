@@ -18,7 +18,7 @@ export default function WhatWe() {
 
             {/* Headline */}
             <h3 className="text-[#0A0C10] text-[32px] md:text-[44px] font-bold tracking-tight leading-[1.1] mb-6">
-              SEO built for how B2B buyers actually buy
+              SEO built for how <span className="text-[#8A2BE2]">B2B Buyers</span> actually buy
             </h3>
 
             {/* Body Text */}

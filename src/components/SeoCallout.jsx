@@ -17,9 +17,9 @@ export default function SeoCallout() {
                 AI SEO CALLOUT
               </h4>
 
-              {/* Headline */}
+            {/* Headline */}
               <h3 className="text-white text-[26px] sm:text-[36px] md:text-[44px] font-bold leading-[1.15] mb-6 tracking-tight">
-                Your buyers are already<br/> asking AI
+                Your <span className="text-[#8A2BE2]">Buyers</span> are already<br/> asking AI
               </h3>
 
               {/* Body Text */}

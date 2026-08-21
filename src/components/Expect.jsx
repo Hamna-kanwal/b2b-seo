@@ -33,10 +33,10 @@ export default function Expect() {
           <div className="lg:col-span-5 w-full flex justify-center items-center">
             <div className="relative w-full h-[385px] sm:h-[420px] rounded-[24px] overflow-hidden">
               <Image
-                src="/images/expect.png"
+                src="/images/build.png"
                 alt="What to expect from SEO illustration"
                 fill
-                className="object-cover rounded-[24px]"
+                className="object-contain rounded-[24px]"
               />
             </div>
           </div>
