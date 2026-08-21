@@ -37,7 +37,7 @@ export default function WhatWe() {
                 src="/images/what.png"
                 alt="B2B SEO Illustration"
                 fill
-                className="object-cover rounded-[24px]"
+                className="object-contain rounded-[24px]"
               />
             </div>
           </div>

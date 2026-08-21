@@ -39,37 +39,37 @@ export default function About() {
   const closeAudit = () => setIsAuditModalOpen(false);
   return (
  <main className="min-h-screen bg-[#130628] flex flex-col items-start text-white font-sans overflow-hidden pt-24 md:pt-28">
-  {/* HERO SECTION */}
-  <section className="relative w-full flex flex-col lg:flex-row items-center justify-between px-6 sm:px-12 md:px-20 pt-12 md:pt-20 pb-16 md:pb-24 z-10 gap-12 max-w-[1400px] mx-auto">
-    
-    {/* Content Container */}
-    <div className="flex-1 max-w-[650px] text-left space-y-8">
-      <h1 className="text-[32px] md:text-[54px] font-[800] leading-[1.15] tracking-tight text-left text-white">
-        About Teqnoor
-      </h1>
+ {/* HERO SECTION */}
+<section className="relative w-full flex flex-col lg:flex-row items-center justify-between px-6 sm:px-12 md:px-20 pt-12 md:pt-20 pb-16 md:pb-24 z-10 gap-12 max-w-[1400px] mx-auto">
+  
+  {/* Content Container */}
+  <div className="flex-1 max-w-[650px] text-center lg:text-left space-y-8">
+    <h1 className="text-[32px] md:text-[54px] font-[800] leading-[1.15] tracking-tight text-center lg:text-left text-white">
+      About Teqnoor
+    </h1>
 
-      {/* SUBTEXT SECTION */}
-      <div className="max-w-3xl space-y-6">
-        <p className="text-[16px] md:text-[19px] font-[500] leading-relaxed text-purple-200/80">
-          Teqnoor is a B2B SEO consultancy based in London. We help
-          businesses with considered buyers rank in Google and get named in
-          AI answers, working as a hands on specialist rather than a layered
-          agency. The founder who plans your SEO is the person who does the
-          work.
-        </p>
-      </div>
+    {/* SUBTEXT SECTION */}
+    <div className="max-w-3xl space-y-6">
+      <p className="text-[16px] md:text-[19px] font-[500] leading-relaxed text-purple-200/85">
+        Teqnoor is a B2B SEO consultancy based in London. We help
+        businesses with considered buyers rank in Google and get named in
+        AI answers, working as a hands on specialist rather than a layered
+        agency. The founder who plans your SEO is the person who does the
+        work.
+      </p>
     </div>
+  </div>
 
-    {/* Graphic Container */}
-    <div className="flex-1 w-full max-w-[500px] flex justify-center lg:justify-end">
-      <img 
-        src="/images/about.png" 
-        alt="About Teqnoor" 
-        className="w-full h-auto object-contain drop-shadow-2xl"
-      />
-    </div>
+  {/* Graphic Container */}
+  <div className="flex-1 w-full max-w-[500px] flex justify-center lg:justify-end">
+    <img 
+      src="/images/about.png" 
+      alt="About Teqnoor" 
+      className="w-full h-auto object-contain drop-shadow-2xl"
+    />
+  </div>
 
-  </section>
+</section>
 
       {/* APPROACH SECTION */}
      <section className="w-full bg-white py-20 px-6 md:px-12">
