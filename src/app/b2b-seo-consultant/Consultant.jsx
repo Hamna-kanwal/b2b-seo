@@ -51,7 +51,7 @@ export default function Consultant() {
                   onClick={openAudit}
                   className="w-full sm:w-auto bg-white text-[#8A2BE2] font-[700] text-[16px] px-7 py-3.5 rounded-[16px] hover:bg-opacity-95 transition-all text-center shadow-md cursor-pointer"
                 >
-                  Request a Free SEO Review
+                  Get a Free SEO Review
                 </button>
 
                 <Link
