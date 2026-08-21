@@ -61,7 +61,7 @@ export default function Audit() {
                   onClick={openAudit}
                   className="w-full sm:w-auto bg-transparent text-white font-[600] text-[16px] px-7 py-3.5 border border-white rounded-[16px] hover:bg-white hover:text-[#8A2BE2] transition-colors text-center cursor-pointer"
                 >
-                  Get a Free Mini Review First
+                  Get a Free SEO Review 
                 </button>
               </div>
 

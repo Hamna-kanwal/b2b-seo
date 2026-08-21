@@ -47,21 +47,21 @@ export default function Consultant() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                <button
+                  onClick={openAudit}
+                  className="w-full sm:w-auto bg-white text-[#8A2BE2] font-[700] text-[16px] px-7 py-3.5 rounded-[16px] hover:bg-opacity-95 transition-all text-center shadow-md cursor-pointer"
+                >
+                  Request a Free SEO Review
+                </button>
+
                 <Link
                   href="https://wa.me/447918092156?text=Hi!%20I'm%20interested%20in%20your%20services.%20Could%20you%20please%20provide%20more%20details%3F"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto bg-white text-[#8A2BE2] font-[700] text-[16px] px-7 py-3.5 rounded-[16px] hover:bg-opacity-95 transition-all text-center shadow-md"
+                  className="w-full sm:w-auto bg-transparent text-white font-[600] text-[16px] px-7 py-3.5 border border-white rounded-[16px] hover:bg-white hover:text-[#8A2BE2] transition-colors text-center"
                 >
                   Speak to a B2B SEO Consultant
                 </Link>
-
-                <button
-                  onClick={openAudit}
-                  className="w-full sm:w-auto bg-transparent text-white font-[600] text-[16px] px-7 py-3.5 border border-white rounded-[16px] hover:bg-white hover:text-[#8A2BE2] transition-colors text-center cursor-pointer"
-                >
-                  Request a Free SEO Review
-                </button>
               </div>
             </div>
 
