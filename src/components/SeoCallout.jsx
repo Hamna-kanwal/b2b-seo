@@ -17,7 +17,7 @@ export default function SeoCallout() {
                 AI SEO CALLOUT
               </h4>
 
-            {/* Headline */}
+              {/* Headline */}
               <h3 className="text-white text-[26px] sm:text-[36px] md:text-[44px] font-bold leading-[1.15] mb-6 tracking-tight">
                 Your <span className="text-[#8A2BE2]">Buyers</span> are already<br/> asking AI
               </h3>
@@ -49,7 +49,7 @@ export default function SeoCallout() {
                   src="/images/callout.png"
                   alt="AI SEO Callout illustration"
                   fill
-                  className="object-cover rounded-[24px]"
+                  className="object-contain rounded-[24px]"
                 />
               </div>
             </div>
