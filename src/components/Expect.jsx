@@ -16,7 +16,7 @@ export default function Expect() {
 
             {/* Headline */}
             <h3 className="text-[#0A0C10] text-[26px] sm:text-[36px] md:text-[44px] font-bold leading-[1.15] mb-6 tracking-tight">
-              SEO is a build, not a switch
+              SEO is a <span className="text-[#8A2BE2]">Build</span>, not a <span className="text-[#8A2BE2]">Switch</span>
             </h3>
 
             {/* Body Text */}
