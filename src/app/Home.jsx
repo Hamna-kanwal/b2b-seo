@@ -21,11 +21,10 @@ export default function Home() {
 
   return (
     <>
- {/* Adjusted min-h to auto and tightened padding to eliminate bottom dead space */}
-<main className="min-h-[auto] bg-gradient-to-b from-[#8A2BE2] to-[#4C187C] flex flex-col items-center text-white font-sans overflow-hidden pt-20 md:pt-28 relative">
+ <main className="min-h-[auto] bg-gradient-to-b from-[#8A2BE2] to-[#4C187C] flex flex-col items-center text-white font-sans overflow-hidden pt-20 md:pt-28 relative">
 
   {/* HERO SECTION */}
-  <section className="relative w-full flex flex-col items-center px-4 pt-6 pb-12 md:py-20 z-10">
+  <section className="relative w-full flex flex-col items-center px-4 pt-12 pb-14 md:py-24 z-10">
 
     {/* === ENHANCED ANIMATED DESIGN IMAGES === */}
     {/* Circle 1: Bottom Left - Smooth organic drift & subtle scaling */}
@@ -58,7 +57,7 @@ export default function Home() {
 
 
     {/* Content Container */}
-    <div className="max-w-[1100px] w-full text-center space-y-5 md:space-y-10">
+    <div className="max-w-[1100px] w-full text-center space-y-6 md:space-y-10">
 
       <h1 className="text-[32px] md:text-[54px] font-[800] leading-[1.15] tracking-tight max-w-[1200px] mx-auto text-center px-4">
         B2B SEO that brings qualified leads,
@@ -66,7 +65,7 @@ export default function Home() {
       </h1>
 
       {/* SUBTEXT SECTION */}
-      <div className="max-w-5xl mx-auto space-y-5 md:space-y-10">
+      <div className="max-w-5xl mx-auto space-y-6 md:space-y-10">
         <p className="text-[15px] md:text-[18px] font-[500] leading-relaxed opacity-90 px-4 max-w-[1000px] mx-auto">
           Teqnoor is a B2B SEO consultancy for businesses with considered buyers. We help you rank in Google and get named in AI answers, so search brings you real enquiries. You work directly with the specialist doing the work, not a junior account handler.     </p>
 
