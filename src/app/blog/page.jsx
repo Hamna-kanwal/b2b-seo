@@ -73,7 +73,6 @@ const BlogGrid = () => {
       {posts.length === 0 ? (
         <div className="text-center py-12 text-gray-500">
           <p className="text-lg">No published blogs found.</p>
-          <p className="text-sm">Create your first blog post from the admin dashboard!</p>
         </div>
       ) : (
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
