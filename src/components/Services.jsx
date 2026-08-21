@@ -62,7 +62,7 @@ export default function Services() {
           OUR SERVICES
         </span>
         <h2 className="text-[32px] md:text-[44px] font-bold text-white tracking-tight leading-tight">
-          What we do
+          What we Offer
         </h2>
         <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto pt-2 leading-relaxed font-normal">
           Four services, one aim: qualified enquiries from search and AI.
