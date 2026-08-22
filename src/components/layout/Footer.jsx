@@ -118,9 +118,18 @@ export default function Footer() {
       </div>
 
       {/* Bottom Copyright */}
-      <div className="max-w-[1200px] mx-auto mt-10 pt-6 border-t border-gray-50 text-center">
+      <div className="max-w-[1200px] mx-auto mt-10 text-center">
         <p className="text-gray-400 text-[12px]">
-          © {new Date().getFullYear()} TEQNOOR. All rights reserved.
+          © {new Date().getFullYear()}{" "}
+          <a
+            href="https://teqnoor.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#8A2BE2] hover:text-[#7928CA] transition-colors font-medium"
+          >
+            TEQNOOR
+          </a>
+          . All rights reserved.
         </p>
       </div>
     </footer>
