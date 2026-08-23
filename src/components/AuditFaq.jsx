@@ -29,14 +29,14 @@ export default function AuditFaq() {
       answer:
         "Typically one to two weeks from kick off call to walkthrough, depending on site size. If something urgent surfaces mid-audit like an indexation issue actively costing you traffic we'll flag it immediately rather than waiting for the final report.",
     },
-    {
-      question: "What happens after the audit?",
-      answer: (
-        <span>
-          That&apos;s entirely up to you. Many clients implement the roadmap with their own team or existing agency. Others bring us in for ongoing support either as a B2B SEO consultant guiding delivery, or through our fully managed <a href="/b2b-seo-services/ " class="underline">B2B SEO services</a>. The audit is designed to stand on its own either way.
-        </span>
-      ),
-  },
+   {
+    question: "What happens after the audit?",
+    answer: (
+      <span>
+        That&apos;s entirely up to you. Many clients implement the roadmap with their own team or existing agency. Others bring us in for ongoing support either as a B2B SEO consultant guiding delivery, or through our fully managed <a href="/b2b-seo-services" className="underline text-[#8A2BE2] hover:text-[#7928CA]">B2B SEO services</a>. The audit is designed to stand on its own either way.
+      </span>
+    ),
+}
   ];
 
   const [openIndex, setOpenIndex] = useState(0);

@@ -32,8 +32,8 @@ export default function B2bFAQ() {
     {
       question: "Can you work alongside our in-house marketing team?",
       answer:
-        "Yes. Many of our clients have internal marketers who handle parts of the work. We flex the scope accordingly leading strategy and the specialist work while your team covers what they do best. If you'd rather have senior guidance than full delivery, our <a href=\"/\" class=\"underline\">B2B SEO consultancy</a> may be the better fit.",
-  },
+        'Yes. Many of our clients have internal marketers who handle parts of the work. We flex the scope accordingly leading strategy and the specialist work while your team covers what they do best. If you\'d rather have senior guidance than full delivery, our <a href="/b2b-seo-consultant" class="underline text-[#8A2BE2] hover:text-[#7928CA]">B2B SEO consultancy</a> may be the better fit.',
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState(0);
@@ -45,7 +45,6 @@ export default function B2bFAQ() {
   return (
     <section className="w-full bg-[#F7F7F7] py-20 px-6 md:px-12 lg:px-16">
       <div className="max-w-[1240px] mx-auto">
-
         {/* Heading */}
         <div className="mb-12">
           <h2 className="text-[34px] md:text-[44px] font-semibold text-[#8A2BE2] leading-[1.1] mb-3">
@@ -71,9 +70,7 @@ export default function B2bFAQ() {
                 <button
                   onClick={() => toggleFAQ(index)}
                   className={`w-full flex items-center justify-between text-left px-5 md:px-6 py-5 transition-all duration-200 ${
-                    isOpen
-                      ? "bg-[#EFE3FF]"
-                      : "bg-white hover:bg-[#F8F4FF]"
+                    isOpen ? "bg-[#EFE3FF]" : "bg-white hover:bg-[#F8F4FF]"
                   }`}
                 >
                   <span className="text-[18px] md:text-[19px] font-semibold text-[#1D1D1D]">
@@ -86,10 +83,10 @@ export default function B2bFAQ() {
                 </button>
 
                 {/* Answer */}
-             {/* Answer */}
+                {/* Answer */}
                 {isOpen && (
                   <div className="px-5 md:px-6 py-5 border-t border-[#D7DCE2] bg-[#FFFFFF]">
-                    <div 
+                    <div
                       className="text-[17px] leading-[1.7] text-[#444444] max-w-[1100px]"
                       dangerouslySetInnerHTML={{ __html: faq.answer }}
                     />
@@ -99,7 +96,6 @@ export default function B2bFAQ() {
             );
           })}
         </div>
-
       </div>
     </section>
   );

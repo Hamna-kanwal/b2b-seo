@@ -32,7 +32,7 @@ export default function AiFaq() {
     {
       question: "Can you run AI SEO alongside our existing SEO?",
       answer:
-        "Yes. If you have an in-house team or agency handling traditional SEO, we can layer AI visibility work on top and coordinate with them. If you'd prefer everything under one roof, our <a href=\"/b2b-seo-services/\" class=\"text-orange-cta underline hover:text-plum\">B2B SEO services</a> cover both channels as a single programme.",
+        'Yes. If you have an in-house team or agency handling traditional SEO, we can layer AI visibility work on top and coordinate with them. If you\'d prefer everything under one roof, our <a href="/b2b-seo-services" class="underline text-[#8A2BE2] hover:text-[#7928CA]">B2B SEO services</a> cover both channels as a single programme.',
     },
   ];
 
@@ -45,7 +45,6 @@ export default function AiFaq() {
   return (
     <section className="w-full bg-[#F7F7F7] py-20 px-6 md:px-12 lg:px-16">
       <div className="max-w-[1240px] mx-auto">
-
         {/* Heading */}
         <div className="mb-12">
           <h2 className="text-[34px] md:text-[44px] font-semibold text-[#8A2BE2] leading-[1.1] mb-3">
@@ -71,9 +70,7 @@ export default function AiFaq() {
                 <button
                   onClick={() => toggleFAQ(index)}
                   className={`w-full flex items-center justify-between text-left px-5 md:px-6 py-5 transition-all duration-200 ${
-                    isOpen
-                      ? "bg-[#EFE3FF]"
-                      : "bg-white hover:bg-[#F8F4FF]"
+                    isOpen ? "bg-[#EFE3FF]" : "bg-white hover:bg-[#F8F4FF]"
                   }`}
                 >
                   <span className="text-[18px] md:text-[19px] font-semibold text-[#1D1D1D]">
@@ -85,10 +82,10 @@ export default function AiFaq() {
                   </span>
                 </button>
 
-               {/* Answer */}
+                {/* Answer */}
                 {isOpen && (
                   <div className="px-5 md:px-6 py-5 border-t border-[#D7DCE2] bg-[#FFFFFF]">
-                    <div 
+                    <div
                       className="text-[17px] leading-[1.7] text-[#444444] max-w-[1100px]"
                       dangerouslySetInnerHTML={{ __html: faq.answer }}
                     />
@@ -98,7 +95,6 @@ export default function AiFaq() {
             );
           })}
         </div>
-
       </div>
     </section>
   );
