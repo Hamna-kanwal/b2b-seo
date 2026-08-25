@@ -17,14 +17,16 @@ export default function BlogListingPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
-  useEffect(() => {
+ useEffect(() => {
     async function fetchBlogs() {
       try {
         const res = await fetch('https://teqnoor.com/api/blogs');
         const json = await res.json();
         
         const posts = json.data || json.blogs || json;
-        if (Array.isArray(posts)) {
+        if (Array.isArray(posts) && posts.length > 0) {
+          // 👉 THIS WILL PRINT THE ACTUAL DATABASE DATA IN YOUR CONSOLE
+          console.log("FULL API POST OBJECT:", posts[0]);
           setBlogs(posts);
         }
       } catch (err) {
