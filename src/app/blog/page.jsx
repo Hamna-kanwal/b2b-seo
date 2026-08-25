@@ -17,16 +17,14 @@ export default function BlogListingPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
- useEffect(() => {
+  useEffect(() => {
     async function fetchBlogs() {
       try {
         const res = await fetch('https://teqnoor.com/api/blogs');
         const json = await res.json();
         
         const posts = json.data || json.blogs || json;
-        if (Array.isArray(posts) && posts.length > 0) {
-          // 👉 THIS WILL PRINT THE ACTUAL DATABASE DATA IN YOUR CONSOLE
-          console.log("FULL API POST OBJECT:", posts[0]);
+        if (Array.isArray(posts)) {
           setBlogs(posts);
         }
       } catch (err) {
@@ -71,12 +69,12 @@ export default function BlogListingPage() {
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentBlogs.map((blog) => {
-            // Determine correct image URL pointing to the original storage path
+            // Correctly map storage path returned from the database
             let imageUrl = null;
             if (blog.image) {
               imageUrl = blog.image.startsWith('http') 
                 ? blog.image 
-                : `https://teqnoor.com/storage/blogs/${blog.image.replace(/^storage\/blogs\//, '')}`;
+                : `https://teqnoor.com/${blog.image}`;
             }
 
             const cleanSnippet = stripHtml(blog.description || blog.content);
@@ -87,47 +85,17 @@ export default function BlogListingPage() {
                 className="bg-white/90 backdrop-blur-xl rounded-[24px] border border-purple-100 shadow-[0_15px_35px_rgba(130,31,191,0.06)] hover:shadow-[0_20px_45px_rgba(130,31,191,0.12)] transition-all duration-300 flex flex-col overflow-hidden group"
               >
                 {/* Card Image Container */}
-<div className="relative w-full h-52 bg-gradient-to-tr from-purple-100 via-purple-50 to-white overflow-hidden flex items-center justify-center border-b border-purple-50">
-  {(() => {
-    // Let's dynamically check what the API image property looks like
-    let imgPath = blog.image || blog.thumbnail || blog.banner;
-    
-    if (!imgPath) return <div className="text-gray-400 text-xs font-semibold">No Image</div>;
-
-    // If it's already an absolute URL, use it directly
-    if (imgPath.startsWith('http')) {
-      return (
-        <img 
-          src={imgPath} 
-          alt={blog.title} 
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-        />
-      );
-    }
-
-    // Otherwise, clean up slashes and map it directly to the exact storage domain path
-    const cleanName = imgPath.replace(/^\/+/, '').replace(/^storage\/blogs\//, '');
-    const finalImageUrl = `https://teqnoor.com/storage/blogs/${cleanName}`;
-
-    return (
-      <img 
-        src={finalImageUrl} 
-        alt={blog.title} 
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        onError={(e) => {
-          // Fallback if the image throws a 404 on the live server
-          e.target.style.display = 'none';
-          e.target.nextSibling.style.display = 'flex';
-        }}
-      />
-    );
-  })()}
-
-  {/* Backup Fallback UI if image fails */}
-  <div className="absolute inset-0 bg-purple-900/10 flex-col items-center justify-center p-4 text-center hidden">
-    <span className="text-[#821fbf] font-bold text-xs">{blog.title}</span>
-  </div>
-</div>
+                <div className="relative w-full h-52 bg-gradient-to-tr from-purple-100 via-purple-50 to-white overflow-hidden flex items-center justify-center border-b border-purple-50">
+                  {imageUrl ? (
+                    <img
+                      src={imageUrl}
+                      alt={blog.title || "Blog post banner"}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="text-gray-400 text-xs font-semibold">No Image Available</div>
+                  )}
+                </div>
 
                 {/* Card Content */}
                 <div className="p-6 sm:p-8 flex flex-col flex-grow">
