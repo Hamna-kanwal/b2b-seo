@@ -69,15 +69,12 @@ export default function BlogListingPage() {
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentBlogs.map((blog) => {
-            // Direct map to your backend's image property
+            // Determine correct image URL pointing to the original storage path
             let imageUrl = null;
             if (blog.image) {
-              if (blog.image.startsWith('http')) {
-                imageUrl = blog.image;
-              } else {
-                const cleanPath = blog.image.startsWith('/') ? blog.image.slice(1) : blog.image;
-                imageUrl = `https://teqnoor.com/${cleanPath}`;
-              }
+              imageUrl = blog.image.startsWith('http') 
+                ? blog.image 
+                : `https://teqnoor.com/storage/blogs/${blog.image.replace(/^storage\/blogs\//, '')}`;
             }
 
             const cleanSnippet = stripHtml(blog.description || blog.content);
@@ -88,22 +85,47 @@ export default function BlogListingPage() {
                 className="bg-white/90 backdrop-blur-xl rounded-[24px] border border-purple-100 shadow-[0_15px_35px_rgba(130,31,191,0.06)] hover:shadow-[0_20px_45px_rgba(130,31,191,0.12)] transition-all duration-300 flex flex-col overflow-hidden group"
               >
                 {/* Card Image Container */}
-                <div className="relative w-full h-52 bg-gradient-to-tr from-purple-100 to-purple-50 overflow-hidden flex items-center justify-center">
-                  {imageUrl ? (
-                    <img
-                      src={imageUrl}
-                      alt={blog.title || "Blog post banner"}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                  ) : (
-                    <span className="text-[#821fbf] font-extrabold text-xs tracking-wider uppercase opacity-60">
-                      TeqNoor Insights
-                    </span>
-                  )}
-                </div>
+<div className="relative w-full h-52 bg-gradient-to-tr from-purple-100 via-purple-50 to-white overflow-hidden flex items-center justify-center border-b border-purple-50">
+  {(() => {
+    // Let's dynamically check what the API image property looks like
+    let imgPath = blog.image || blog.thumbnail || blog.banner;
+    
+    if (!imgPath) return <div className="text-gray-400 text-xs font-semibold">No Image</div>;
+
+    // If it's already an absolute URL, use it directly
+    if (imgPath.startsWith('http')) {
+      return (
+        <img 
+          src={imgPath} 
+          alt={blog.title} 
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+        />
+      );
+    }
+
+    // Otherwise, clean up slashes and map it directly to the exact storage domain path
+    const cleanName = imgPath.replace(/^\/+/, '').replace(/^storage\/blogs\//, '');
+    const finalImageUrl = `https://teqnoor.com/storage/blogs/${cleanName}`;
+
+    return (
+      <img 
+        src={finalImageUrl} 
+        alt={blog.title} 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        onError={(e) => {
+          // Fallback if the image throws a 404 on the live server
+          e.target.style.display = 'none';
+          e.target.nextSibling.style.display = 'flex';
+        }}
+      />
+    );
+  })()}
+
+  {/* Backup Fallback UI if image fails */}
+  <div className="absolute inset-0 bg-purple-900/10 flex-col items-center justify-center p-4 text-center hidden">
+    <span className="text-[#821fbf] font-bold text-xs">{blog.title}</span>
+  </div>
+</div>
 
                 {/* Card Content */}
                 <div className="p-6 sm:p-8 flex flex-col flex-grow">
