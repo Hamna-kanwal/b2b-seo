@@ -1,37 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 
-function FormattedTitle({ title }) {
-  if (!title) return null;
-
-  if (title.includes(':')) {
-    const colonIndex = title.indexOf(':');
-    const primaryPart = title.substring(0, colonIndex + 1);
-    const secondaryPart = title.substring(colonIndex + 1).trim();
-
-    return (
-      <h1 className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 tracking-tight leading-[1.15] flex flex-col items-center gap-2 text-center break-words">
-        <span className="bg-gradient-to-r from-[#821fbf] to-[#9333EA] bg-clip-text text-transparent">
-          {primaryPart}
-        </span>
-        {secondaryPart && (
-          <span className="text-gray-900">{secondaryPart}</span>
-        )}
-      </h1>
-    );
-  }
-
-  return (
-    <h1 className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 tracking-tight leading-[1.15] text-center break-words text-gray-900">
-      {title}
-    </h1>
-  );
-}
-
-export default function BlogDetailPage() {
+export default function SingleBlogPostPage() {
   const params = useParams();
   const slug = params?.slug;
 
@@ -39,121 +12,144 @@ export default function BlogDetailPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchBlogDetail() {
-      if (!slug) return;
+    if (!slug) return;
+
+    async function fetchSingleBlog() {
       try {
-        const res = await fetch('https://teqnoor.com/api/blogs');
+        const res = await fetch(`https://teqnoor.com/api/blogs`);
         const json = await res.json();
         
         const posts = json.data || json.blogs || json;
-        
         if (Array.isArray(posts)) {
-          const normalizedSlug = decodeURIComponent(String(slug)).trim().toLowerCase();
-          const found = posts.find(
-            (p) => String(p.slug).trim().toLowerCase() === normalizedSlug
-          );
-          setBlog(found || null);
+          const foundPost = posts.find((p) => p.slug === slug);
+          setBlog(foundPost || null);
         }
       } catch (err) {
-        console.error('Error fetching blog detail:', err);
-        setBlog(null);
+        console.error('Error fetching blog post:', err);
       } finally {
         setLoading(false);
       }
     }
 
-    fetchBlogDetail();
+    fetchSingleBlog();
   }, [slug]);
 
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f8f7fc] via-[#f3f0fb] to-[#ede9fe] flex items-center justify-center p-6 font-sans">
-        <div className="text-[#821fbf] font-bold text-lg animate-pulse">Loading article...</div>
+        <div className="text-[#8a2be2] font-bold text-lg animate-pulse">Loading article...</div>
       </div>
     );
   }
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#f8f7fc] via-[#f3f0fb] to-[#ede9fe] flex items-center justify-center p-6 font-sans">
-        <div className="bg-white/85 backdrop-blur-xl p-10 rounded-[28px] border border-purple-200/60 shadow-[0_20px_40px_rgba(130,31,191,0.08)] text-center max-w-md w-full transition-all">
-          <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6 text-[#821fbf]">
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-          </div>
-          <h2 className="text-[#821fbf] text-2xl font-extrabold mb-3 tracking-tight">Blog post not found</h2>
-          <p className="text-gray-500 text-sm mb-8 leading-relaxed">The article you are looking for might have been removed, renamed, or is temporarily unavailable.</p>
-          <Link 
-            href="/blog" 
-            className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl bg-[#821fbf] text-white font-bold text-sm shadow-lg shadow-purple-500/25 hover:bg-purple-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
-          >
-            ← Return to All Insights
-          </Link>
-        </div>
+      <div className="min-h-screen bg-gradient-to-br from-[#f8f7fc] via-[#f3f0fb] to-[#ede9fe] flex flex-col items-center justify-center p-6 font-sans">
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">Blog Post Not Found</h1>
+        <Link 
+          href="/blog" 
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-purple-50/80 border border-purple-100 text-[#8a2be2] font-bold text-sm shadow-sm hover:bg-purple-100/60 transition-all"
+        >
+          ← Back to All Insights
+        </Link>
       </div>
     );
   }
 
-  // Resolve image source across multiple property variants
-  const rawImage = blog.image || blog.imageUrl || blog.featuredImage || blog.img;
-  const imageUrl = rawImage 
-    ? (rawImage.startsWith('http') ? rawImage : `https://teqnoor.com/${rawImage.startsWith('/') ? '' : '/'}${rawImage}`) 
-    : '';
+  // Multi-key image extraction supporting image_url, image, etc.
+  let imageUrl = null;
+  const rawImage = blog.image_url || blog.image || blog.thumbnail || blog.photo || blog.featured_image;
+  if (rawImage) {
+    const cleanedPath = String(rawImage).replace(/\s+/g, '').trim();
+    imageUrl = cleanedPath.startsWith('http') 
+      ? cleanedPath 
+      : `https://teqnoor.com/${cleanedPath.replace(/^\/+/, '')}`;
+  }
+
+  // Helper to split title by colon for black (before) and #8a2be2 (after) styling
+  const titleParts = blog.title ? blog.title.split(':') : [''];
+  const beforeColon = titleParts[0];
+  const afterColon = titleParts.slice(1).join(':');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f8f7fc] via-[#f3f0fb] to-[#ede9fe] py-16 px-4 sm:px-6 font-sans selection:bg-purple-100 selection:text-[#821fbf]">
-      <article className="max-w-6xl mx-auto w-full bg-white/90 backdrop-blur-2xl p-6 sm:p-12 md:p-16 rounded-[32px] border border-purple-100 shadow-[0_20px_50px_rgba(130,31,191,0.07)] transition-all overflow-hidden">
-        <div className="w-full min-w-0">
-          
-          {/* Article Header */}
-          <header className="mb-10 text-center max-w-3xl mx-auto">
-            <FormattedTitle title={blog.title} />
-            <div className="w-24 h-1.5 mx-auto rounded-full bg-gray-900 shadow-sm"></div>
-          </header>
+    <article className="min-h-screen bg-gradient-to-br from-[#f8f7fc] via-[#f3f0fb] to-[#ede9fe] py-20 px-4 sm:px-6 font-sans">
+      
+      {/* Global override style: Force remove all underlines and force color */}
+      <style jsx global>{`
+        .blog-content a,
+        .blog-content a:link,
+        .blog-content a:visited,
+        .blog-content a:hover,
+        .blog-content a:active {
+          color: #8a2be2 !important;
+          text-decoration: none !important;
+          text-decoration-line: none !important;
+          border-bottom: none !important;
+          font-weight: 600;
+        }
+      `}</style>
 
-          {/* Featured Image with Fallback */}
-          {imageUrl && (
-            <div className="relative w-full h-[280px] sm:h-[420px] md:h-[480px] mb-12 rounded-[24px] overflow-hidden shadow-2xl border border-purple-50 group bg-purple-50">
-              <img
-                src={imageUrl}
-                alt={blog.title || "Blog banner"}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                onError={(e) => {
-                  e.target.style.display = 'none'; // Hides container if image fails completely
-                }}
-              />
+      <div className="max-w-4xl mx-auto pt-8 sm:pt-12">
+        
+        {/* Top Button */}
+        <div className="mb-8">
+          <Link 
+            href="/blog" 
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-purple-50/80 border border-purple-100 text-[#8a2be2] font-bold text-sm shadow-sm hover:bg-purple-100/60 transition-all hover:translate-x-[-4px]"
+          >
+            ← Back to All Insights
+          </Link>
+        </div>
+
+        {/* Article Header */}
+        <header className="mb-10">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-6 leading-tight text-gray-900">
+            {beforeColon}
+            {afterColon && (
+              <>
+                :<span className="text-[#8a2be2]"> {afterColon}</span>
+              </>
+            )}
+          </h1>
+          {blog.created_at && (
+            <div className="text-gray-500 text-sm font-semibold">
+              Published on {new Date(blog.created_at).toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+              })}
             </div>
           )}
+        </header>
 
-          {/* Typography container */}
-          <div
-            className="blog-content text-gray-700 text-base sm:text-lg w-full min-w-0 leading-relaxed space-y-6 [&>p]:mb-6 [&>h2]:text-2xl sm:[&>h2]:text-3xl [&>h2]:font-extrabold [&>h2]:text-gray-900 [&>h2]:mt-10 [&>h2]:mb-4 [&>h3]:text-xl sm:[&>h3]:text-2xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>h3]:mt-8 [&>h3]:mb-3 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:space-y-2 [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:space-y-2 [&>strong]:font-bold [&>strong]:text-gray-900 [&_a]:text-[#821fbf] [&_a]:font-semibold [&_a]:no-underline hover:[&_a]:text-purple-900 [&>blockquote]:border-l-4 [&>blockquote]:border-[#821fbf] [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:my-6"
-            style={{
-              overflowWrap: 'break-word',
-              wordBreak: 'normal',
-              hyphens: 'none',
-              maxWidth: '100%'
-            }}
-            dangerouslySetInnerHTML={{ __html: blog.description || blog.content }}
-          />
-
-          {/* Article Footer Navigation */}
-          <div className="mt-16 pt-8 border-t border-purple-100/80 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-[#821fbf] font-bold text-sm px-5 py-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 transition-all duration-200 group"
-            >
-              <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to All Insights
-            </Link>
-            
-            <div className="text-xs text-gray-400 font-medium">
-              Published on TeqNoor Insights
-            </div>
+        {/* Featured Image Container */}
+        {imageUrl && (
+          <div className="relative w-full h-[300px] sm:h-[460px] rounded-[24px] overflow-hidden mb-12 shadow-[0_15px_35px_rgba(138,43,226,0.08)] border border-purple-100 bg-white">
+            <img
+              src={imageUrl}
+              alt={blog.title || "Blog banner"}
+              className="w-full h-full object-cover"
+            />
           </div>
+        )}
 
+        {/* Article Body Content */}
+        <div 
+          className="blog-content bg-white/90 backdrop-blur-xl rounded-[24px] p-6 sm:p-12 border border-purple-100 shadow-[0_15px_35px_rgba(138,43,226,0.06)] prose prose-purple max-w-none text-gray-700 leading-relaxed space-y-6 mb-12"
+          dangerouslySetInnerHTML={{ __html: blog.content || blog.description }}
+        />
+
+        {/* Bottom Button */}
+        <div className="pt-4 border-t border-purple-100 flex justify-start">
+          <Link 
+            href="/blog" 
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-purple-50/80 border border-purple-100 text-[#8a2be2] font-bold text-sm shadow-sm hover:bg-purple-100/60 transition-all hover:translate-x-[-4px]"
+          >
+            ← Back to All Insights
+          </Link>
         </div>
-      </article>
-    </div>
+
+      </div>
+    </article>
   );
 }

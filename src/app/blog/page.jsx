@@ -24,7 +24,10 @@ export default function BlogListingPage() {
         const json = await res.json();
         
         const posts = json.data || json.blogs || json;
-        if (Array.isArray(posts)) {
+        if (Array.isArray(posts) && posts.length > 0) {
+          // Check console to see what keys your senior's API is returning
+          console.log("All keys in blog object:", Object.keys(posts[0]));
+          console.log("Full first post data:", posts[0]);
           setBlogs(posts);
         }
       } catch (err) {
@@ -69,14 +72,6 @@ export default function BlogListingPage() {
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentBlogs.map((blog) => {
-            let imageUrl = null;
-            if (blog.image) {
-              const cleanedPath = blog.image.replace(/\s+/g, '').trim();
-              imageUrl = cleanedPath.startsWith('http') 
-                ? cleanedPath 
-                : `https://teqnoor.com/${cleanedPath}`;
-            }
-
             const cleanSnippet = stripHtml(blog.description || blog.content);
 
             return (
@@ -86,15 +81,31 @@ export default function BlogListingPage() {
               >
                 {/* Card Image Container */}
                 <div className="relative w-full h-52 bg-gradient-to-tr from-purple-100 via-purple-50 to-white overflow-hidden flex items-center justify-center border-b border-purple-50">
-                  {imageUrl ? (
-                    <img
-                      src={imageUrl}
-                      alt={blog.title || "Blog post banner"}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="text-gray-400 text-xs font-semibold">No Image Available</div>
-                  )}
+                  {(() => {
+                    // Automatically tests all known API key possibilities
+                    const rawImage = blog.image_url || blog.image || blog.thumbnail || blog.photo || blog.featured_image;
+                    
+                    if (!rawImage) {
+                      return <div className="text-gray-400 text-xs font-semibold">No Image Available</div>;
+                    }
+
+                    const cleanedPath = String(rawImage).replace(/\s+/g, '').trim();
+                    const imageUrl = cleanedPath.startsWith('http') 
+                      ? cleanedPath 
+                      : `https://teqnoor.com/${cleanedPath.replace(/^\/+/, '')}`;
+
+                    return (
+                      <img
+                        src={imageUrl}
+                        alt={blog.title || "Blog post banner"}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          console.error("Failed to load image URL:", imageUrl);
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                    );
+                  })()}
                 </div>
 
                 {/* Card Content */}
