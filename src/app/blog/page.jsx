@@ -4,32 +4,34 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const BlogCard = ({ title, excerpt, image, slug }) => (
-  <div className="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 mt-12 border border-gray-100">
-    <div className="relative h-56 w-full overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/60 to-transparent z-10" />
-      <img      
-        src={image || '/teqnoor-default.jpg'} 
-        alt={title} 
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-      />
-    </div>
-
-    <div className="p-8 bg-white">
-      <h4 className="text-[#821fbf] font-extrabold text-xl text-center uppercase mb-3 tracking-tight">
-        {title}
-      </h4>
-      <p className="text-gray-600 text-sm text-center mb-6 leading-relaxed line-clamp-3">
-        {excerpt}
-      </p>
-      
-      <div className="text-center">
-        <Link 
-          href={`/blog/${encodeURIComponent(slug)}`} 
-          className="font-bold text-xs uppercase tracking-widest text-[#821fbf] hover:text-purple-800 transition-colors"
-        >
-          Read More →
-        </Link>
+  <div className="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 mt-12 border border-gray-100 flex flex-col justify-between">
+    <div>
+      <div className="relative h-56 w-full overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-950/60 to-transparent z-10" />
+        <img      
+          src={image || '/teqnoor-default.jpg'} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+        />
       </div>
+
+      <div className="p-8 bg-white">
+        <h4 className="text-[#821fbf] font-extrabold text-xl text-center uppercase mb-3 tracking-tight line-clamp-2">
+          {title}
+        </h4>
+        <p className="text-gray-600 text-sm text-center mb-6 leading-relaxed line-clamp-3">
+          {excerpt}
+        </p>
+      </div>
+    </div>
+    
+    <div className="p-8 pt-0 bg-white text-center">
+      <Link 
+        href={`/blog/${encodeURIComponent(slug)}`} 
+        className="font-bold text-xs uppercase tracking-widest text-[#821fbf] hover:text-purple-800 transition-colors inline-block"
+      >
+        Read More →
+      </Link>
     </div>
   </div>
 );
@@ -41,13 +43,22 @@ const BlogGrid = () => {
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        const res = await fetch('/api/blogs');
+        const res = await fetch('https://teqnoor.com/api/blogs');
         const data = await res.json();
-        if (data.success) {
+        
+        // Handles { success: true, blogs: [...] }, direct arrays [...], or standard objects
+        if (data && data.success && Array.isArray(data.blogs)) {
           setPosts(data.blogs);
+        } else if (Array.isArray(data)) {
+          setPosts(data);
+        } else if (data && Array.isArray(data.blogs)) {
+          setPosts(data.blogs);
+        } else {
+          setPosts([]);
         }
       } catch (err) {
         console.error('Error fetching blogs:', err);
+        setPosts([]);
       } finally {
         setLoading(false);
       }
