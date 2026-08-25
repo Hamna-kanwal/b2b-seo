@@ -69,15 +69,13 @@ export default function BlogListingPage() {
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentBlogs.map((blog) => {
-            // Correctly map storage path returned from the database
             let imageUrl = null;
-if (blog.image) {
-  // Clean out any whitespace, newlines, or hidden breaks from the database string
-  const cleanedPath = blog.image.replace(/\s+/g, '').trim();
-  imageUrl = cleanedPath.startsWith('http') 
-    ? cleanedPath 
-    : `https://teqnoor.com/${cleanedPath}`;
-}
+            if (blog.image) {
+              const cleanedPath = blog.image.replace(/\s+/g, '').trim();
+              imageUrl = cleanedPath.startsWith('http') 
+                ? cleanedPath 
+                : `https://teqnoor.com/${cleanedPath}`;
+            }
 
             const cleanSnippet = stripHtml(blog.description || blog.content);
 
@@ -123,41 +121,75 @@ if (blog.image) {
           })}
         </div>
 
-        {/* Pagination Controls */}
+        {/* Pagination Controls with First, Prev, Next, and Last */}
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-4 mt-16">
+          <div className="flex justify-center items-center gap-2 sm:gap-4 mt-16 flex-wrap">
+            {/* First Page Button */}
+            <button
+              onClick={() => {
+                setCurrentPage(1);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              disabled={currentPage === 1}
+              className={`px-3 sm:px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${
+                currentPage === 1
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-[#821fbf] text-white hover:bg-[#6e19a3] shadow-md'
+              }`}
+            >
+              « First
+            </button>
+
+            {/* Previous Page Button */}
             <button
               onClick={() => {
                 setCurrentPage((prev) => Math.max(prev - 1, 1));
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               disabled={currentPage === 1}
-              className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all ${
+              className={`px-3 sm:px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${
                 currentPage === 1
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-[#821fbf] text-white hover:bg-[#6e19a3] shadow-md'
               }`}
             >
-              ← Previous
+              ‹ Prev
             </button>
 
-            <span className="text-gray-700 font-semibold text-sm">
+            <span className="text-gray-700 font-semibold text-sm px-2">
               Page {currentPage} of {totalPages}
             </span>
 
+            {/* Next Page Button */}
             <button
               onClick={() => {
                 setCurrentPage((prev) => Math.min(prev + 1, totalPages));
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               disabled={currentPage === totalPages}
-              className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all ${
+              className={`px-3 sm:px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${
                 currentPage === totalPages
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-[#821fbf] text-white hover:bg-[#6e19a3] shadow-md'
               }`}
             >
-              Next →
+              Next ›
+            </button>
+
+            {/* Last Page Button */}
+            <button
+              onClick={() => {
+                setCurrentPage(totalPages);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              disabled={currentPage === totalPages}
+              className={`px-3 sm:px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${
+                currentPage === totalPages
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-[#821fbf] text-white hover:bg-[#6e19a3] shadow-md'
+              }`}
+            >
+              Last »
             </button>
           </div>
         )}
