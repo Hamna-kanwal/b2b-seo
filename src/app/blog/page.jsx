@@ -12,6 +12,10 @@ function stripHtml(html) {
 export default function BlogListingPage() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6;
 
   useEffect(() => {
     async function fetchBlogs() {
@@ -41,6 +45,12 @@ export default function BlogListingPage() {
     );
   }
 
+  // Calculate slice indices for pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentBlogs = blogs.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(blogs.length / postsPerPage);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f8f7fc] via-[#f3f0fb] to-[#ede9fe] py-20 px-4 sm:px-6 font-sans">
       <div className="max-w-7xl mx-auto pt-8 sm:pt-12">
@@ -58,25 +68,14 @@ export default function BlogListingPage() {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog) => {
-            // Comprehensive check for image properties (string or nested objects)
-            const rawImage = 
-              blog.image || 
-              blog.imageUrl || 
-              blog.featuredImage || 
-              blog.img || 
-              blog.photo || 
-              blog.coverImage ||
-              blog.banner;
-
+          {currentBlogs.map((blog) => {
+            // Direct map to your backend's image property
             let imageUrl = null;
-            const imagePath = typeof rawImage === 'object' ? rawImage?.url || rawImage?.path : rawImage;
-
-            if (imagePath && typeof imagePath === 'string') {
-              if (imagePath.startsWith('http')) {
-                imageUrl = imagePath;
+            if (blog.image) {
+              if (blog.image.startsWith('http')) {
+                imageUrl = blog.image;
               } else {
-                const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+                const cleanPath = blog.image.startsWith('/') ? blog.image.slice(1) : blog.image;
                 imageUrl = `https://teqnoor.com/${cleanPath}`;
               }
             }
@@ -85,7 +84,7 @@ export default function BlogListingPage() {
 
             return (
               <div 
-                key={blog._id || blog.slug}
+                key={blog._id || blog.id || blog.slug}
                 className="bg-white/90 backdrop-blur-xl rounded-[24px] border border-purple-100 shadow-[0_15px_35px_rgba(130,31,191,0.06)] hover:shadow-[0_20px_45px_rgba(130,31,191,0.12)] transition-all duration-300 flex flex-col overflow-hidden group"
               >
                 {/* Card Image Container */}
@@ -129,6 +128,45 @@ export default function BlogListingPage() {
             );
           })}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-4 mt-16">
+            <button
+              onClick={() => {
+                setCurrentPage((prev) => Math.max(prev - 1, 1));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              disabled={currentPage === 1}
+              className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all ${
+                currentPage === 1
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-[#821fbf] text-white hover:bg-[#6e19a3] shadow-md'
+              }`}
+            >
+              ← Previous
+            </button>
+
+            <span className="text-gray-700 font-semibold text-sm">
+              Page {currentPage} of {totalPages}
+            </span>
+
+            <button
+              onClick={() => {
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              disabled={currentPage === totalPages}
+              className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all ${
+                currentPage === totalPages
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-[#821fbf] text-white hover:bg-[#6e19a3] shadow-md'
+              }`}
+            >
+              Next →
+            </button>
+          </div>
+        )}
 
       </div>
     </div>
