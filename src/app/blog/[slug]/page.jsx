@@ -16,11 +16,10 @@ export default function SingleBlogPostPage() {
 
     async function fetchSingleBlog() {
       try {
-        // Fetch from your unified API route instead of direct external URL
-        const res = await fetch(`/api/blogs`);
+        const res = await fetch(`https://teqnoor.com/api/blogs`);
         const json = await res.json();
         
-        const posts = json.blogs || json.data || json;
+        const posts = json.data || json.blogs || json;
         if (Array.isArray(posts)) {
           const foundPost = posts.find((p) => p.slug === slug);
           setBlog(foundPost || null);
@@ -57,17 +56,14 @@ export default function SingleBlogPostPage() {
     );
   }
 
-  // Multi-key image extraction supporting image_url, image, base64, etc.
+  // Multi-key image extraction supporting image_url, image, etc.
   let imageUrl = null;
   const rawImage = blog.image_url || blog.image || blog.thumbnail || blog.photo || blog.featured_image;
   if (rawImage) {
-    const imageStr = String(rawImage).trim();
-    if (imageStr.startsWith('data:image/') || imageStr.startsWith('http')) {
-      imageUrl = imageStr;
-    } else {
-      const cleanedPath = imageStr.replace(/\s+/g, '');
-      imageUrl = `https://teqnoor.com/${cleanedPath.replace(/^\/+/, '')}`;
-    }
+    const cleanedPath = String(rawImage).replace(/\s+/g, '').trim();
+    imageUrl = cleanedPath.startsWith('http') 
+      ? cleanedPath 
+      : `https://teqnoor.com/${cleanedPath.replace(/^\/+/, '')}`;
   }
 
   // Helper to split title by colon for black (before) and #8a2be2 (after) styling
@@ -126,13 +122,13 @@ export default function SingleBlogPostPage() {
           )}
         </header>
 
-        {/* Featured Image Container - Mobile Responsive Aspect Ratio */}
+        {/* Featured Image Container - Responsive adjustment only */}
         {imageUrl && (
-          <div className="relative w-full aspect-video sm:h-[460px] rounded-[24px] overflow-hidden mb-12 shadow-[0_15px_35px_rgba(138,43,226,0.08)] border border-purple-100 bg-white">
+          <div className="relative w-full h-[220px] sm:h-[350px] md:h-[460px] rounded-[24px] overflow-hidden mb-12 shadow-[0_15px_35px_rgba(138,43,226,0.08)] border border-purple-100 bg-white">
             <img
               src={imageUrl}
               alt={blog.title || "Blog banner"}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
         )}
