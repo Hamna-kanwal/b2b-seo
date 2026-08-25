@@ -83,11 +83,16 @@ export default function AdminBlogs() {
 
   const handleTitleChange = (e) => {
     const title = e.target.value;
-    setFormData((prev) => ({ ...prev, title }));
+    setFormData((prev) => ({
+      ...prev,
+      title,
+      // Automatically generate slug if not currently editing an existing post
+      slug: !editingSlug ? createSlug(title) : prev.slug,
+    }));
   };
 
   const handleSlugChange = (e) => {
-    const slug = createSlug(e.target.value);
+    const slug = e.target.value;
     setFormData((prev) => ({ ...prev, slug }));
   };
 
@@ -334,16 +339,37 @@ export default function AdminBlogs() {
 
             <div>
               <label style={{ fontSize: '11px', fontWeight: '700', color: '#6b7280', letterSpacing: '0.8px', textTransform: 'uppercase', display: 'block' }}>URL Slug:</label>
-              <input
-                type="text"
-                required
-                value={formData.slug}
-                onChange={handleSlugChange}
-                placeholder="e.g., b2b-seo-target"
-                style={inputStyle}
-              />
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <input
+                  type="text"
+                  required
+                  value={formData.slug}
+                  onChange={handleSlugChange}
+                  placeholder="e.g., b2b-seo-target"
+                  style={inputStyle}
+                />
+                <button
+                  type="button"
+                  onClick={() => setFormData((prev) => ({ ...prev, slug: createSlug(prev.slug) }))}
+                  style={{
+                    padding: '14px 16px',
+                    marginTop: '6px',
+                    backgroundColor: '#ede9fe',
+                    color: '#7928CA',
+                    border: '1px solid #e9d5ff',
+                    borderRadius: '14px',
+                    fontSize: '12px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap'
+                  }}
+                  title="Clean up slug format"
+                >
+                  Format Slug
+                </button>
+              </div>
               <p style={{ margin: '8px 0 0', fontSize: '12px', color: '#6b7280' }}>
-                Use lowercase letters, numbers, and hyphens only.
+                Use lowercase letters, numbers, and hyphens only. Click "Format Slug" to sanitize.
               </p>
             </div>
 
@@ -492,147 +518,147 @@ export default function AdminBlogs() {
         </div>
       ))}
 
-              {totalPages > 1 && (
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px', marginTop: '30px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-                    
-                    <button
-                      type="button"
-                      disabled={currentPage === 1}
-                      onClick={() => setCurrentPage(1)}
-                      style={{
-                        padding: '8px 12px',
-                        border: '1px solid #e9d5ff',
-                        borderRadius: '10px',
-                        backgroundColor: currentPage === 1 ? '#f9fafb' : '#ffffff',
-                        color: currentPage === 1 ? '#9ca3af' : '#7928CA',
-                        cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                        fontWeight: '700',
-                        fontSize: '13px'
-                      }}
-                    >
-                      « First
-                    </button>
+            {totalPages > 1 && (
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px', marginTop: '30px' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
+                  
+                  <button
+                    type="button"
+                    disabled={currentPage === 1}
+                    onClick={() => setCurrentPage(1)}
+                    style={{
+                      padding: '8px 12px',
+                      border: '1px solid #e9d5ff',
+                      borderRadius: '10px',
+                      backgroundColor: currentPage === 1 ? '#f9fafb' : '#ffffff',
+                      color: currentPage === 1 ? '#9ca3af' : '#7928CA',
+                      cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                      fontWeight: '700',
+                      fontSize: '13px'
+                    }}
+                  >
+                    « First
+                  </button>
 
-                    <button
-                      type="button"
-                      disabled={currentPage === 1}
-                      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                      style={{
-                        padding: '8px 12px',
-                        border: '1px solid #e9d5ff',
-                        borderRadius: '10px',
-                        backgroundColor: currentPage === 1 ? '#f9fafb' : '#ffffff',
-                        color: currentPage === 1 ? '#9ca3af' : '#7928CA',
-                        cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                        fontWeight: '700',
-                        fontSize: '13px',
-                        marginRight: '4px'
-                      }}
-                    >
-                      ‹ Prev
-                    </button>
+                  <button
+                    type="button"
+                    disabled={currentPage === 1}
+                    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                    style={{
+                      padding: '8px 12px',
+                      border: '1px solid #e9d5ff',
+                      borderRadius: '10px',
+                      backgroundColor: currentPage === 1 ? '#f9fafb' : '#ffffff',
+                      color: currentPage === 1 ? '#9ca3af' : '#7928CA',
+                      cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                      fontWeight: '700',
+                      fontSize: '13px',
+                      marginRight: '4px'
+                    }}
+                  >
+                    ‹ Prev
+                  </button>
 
-                    {(() => {
-                      const pages = [];
-                      const range = 1;
+                  {(() => {
+                    const pages = [];
+                    const range = 1;
 
-                      for (let i = 1; i <= totalPages; i++) {
-                        if (
-                          i === 1 ||
-                          i === totalPages ||
-                          (i >= currentPage - range && i <= currentPage + range)
-                        ) {
-                          pages.push(
-                            <button
-                              key={i}
-                              type="button"
-                              onClick={() => setCurrentPage(i)}
-                              style={{
-                                padding: '8px 14px',
-                                border: '1px solid #e9d5ff',
-                                borderRadius: '10px',
-                                backgroundColor: currentPage === i ? '#7928CA' : '#ffffff',
-                                color: currentPage === i ? '#ffffff' : '#7928CA',
-                                cursor: 'pointer',
-                                fontWeight: '700',
-                                fontSize: '13px',
-                                minWidth: '40px'
-                              }}
-                            >
-                              {i}
-                            </button>
-                          );
-                        } else if (
-                          i === currentPage - range - 1 ||
-                          i === currentPage + range + 1
-                        ) {
-                          pages.push(
-                            <span
-                              key={`ellipsis-${i}`}
-                              style={{
-                                color: '#7928CA',
-                                padding: '0 8px',
-                                fontWeight: '700',
-                                userSelect: 'none'
-                              }}
-                            >
-                              ...
-                            </span>
-                          );
-                        }
+                    for (let i = 1; i <= totalPages; i++) {
+                      if (
+                        i === 1 ||
+                        i === totalPages ||
+                        (i >= currentPage - range && i <= currentPage + range)
+                      ) {
+                        pages.push(
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => setCurrentPage(i)}
+                            style={{
+                              padding: '8px 14px',
+                              border: '1px solid #e9d5ff',
+                              borderRadius: '10px',
+                              backgroundColor: currentPage === i ? '#7928CA' : '#ffffff',
+                              color: currentPage === i ? '#ffffff' : '#7928CA',
+                              cursor: 'pointer',
+                              fontWeight: '700',
+                              fontSize: '13px',
+                              minWidth: '40px'
+                            }}
+                          >
+                            {i}
+                          </button>
+                        );
+                      } else if (
+                        i === currentPage - range - 1 ||
+                        i === currentPage + range + 1
+                      ) {
+                        pages.push(
+                          <span
+                            key={`ellipsis-${i}`}
+                            style={{
+                              color: '#7928CA',
+                              padding: '0 8px',
+                              fontWeight: '700',
+                              userSelect: 'none'
+                            }}
+                          >
+                            ...
+                          </span>
+                        );
                       }
-                      return pages;
-                    })()}
+                    }
+                    return pages;
+                  })()}
 
-                    <button
-                      type="button"
-                      disabled={currentPage === totalPages}
-                      onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-                      style={{
-                        padding: '8px 12px',
-                        border: '1px solid #e9d5ff',
-                        borderRadius: '10px',
-                        backgroundColor: currentPage === totalPages ? '#f9fafb' : '#ffffff',
-                        color: currentPage === totalPages ? '#9ca3af' : '#7928CA',
-                        cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                        fontWeight: '700',
-                        fontSize: '13px',
-                        marginLeft: '4px'
-                      }}
-                    >
-                      Next ›
-                    </button>
+                  <button
+                    type="button"
+                    disabled={currentPage === totalPages}
+                    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                    style={{
+                      padding: '8px 12px',
+                      border: '1px solid #e9d5ff',
+                      borderRadius: '10px',
+                      backgroundColor: currentPage === totalPages ? '#f9fafb' : '#ffffff',
+                      color: currentPage === totalPages ? '#9ca3af' : '#7928CA',
+                      cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                      fontWeight: '700',
+                      fontSize: '13px',
+                      marginLeft: '4px'
+                    }}
+                  >
+                    Next ›
+                  </button>
 
-                    <button
-                      type="button"
-                      disabled={currentPage === totalPages}
-                      onClick={() => setCurrentPage(totalPages)}
-                      style={{
-                        padding: '8px 12px',
-                        border: '1px solid #e9d5ff',
-                        borderRadius: '10px',
-                        backgroundColor: currentPage === totalPages ? '#f9fafb' : '#ffffff',
-                        color: currentPage === totalPages ? '#9ca3af' : '#7928CA',
-                        cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                        fontWeight: '700',
-                        fontSize: '13px'
-                      }}
-                    >
-                      Last »
-                    </button>
+                  <button
+                    type="button"
+                    disabled={currentPage === totalPages}
+                    onClick={() => setCurrentPage(totalPages)}
+                    style={{
+                      padding: '8px 12px',
+                      border: '1px solid #e9d5ff',
+                      borderRadius: '10px',
+                      backgroundColor: currentPage === totalPages ? '#f9fafb' : '#ffffff',
+                      color: currentPage === totalPages ? '#9ca3af' : '#7928CA',
+                      cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                      fontWeight: '700',
+                      fontSize: '13px'
+                    }}
+                  >
+                    Last »
+                  </button>
 
-                  </div>
-
-                  <span style={{ fontSize: '13px', color: '#6b7280', fontWeight: '500' }}>
-                    Showing {indexOfFirstBlog + 1} to {Math.min(indexOfLastBlog, blogs.length)} of {blogs.length} entries
-                  </span>
                 </div>
-              )}
-            </div>
-          )}
-        </section>
-      </div>
+
+                <span style={{ fontSize: '13px', color: '#6b7280', fontWeight: '500' }}>
+                  Showing {indexOfFirstBlog + 1} to {Math.min(indexOfLastBlog, blogs.length)} of {blogs.length} entries
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+      </section>
     </div>
-  );
+  </div>
+);
 }
