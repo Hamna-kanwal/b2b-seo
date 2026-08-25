@@ -6,10 +6,10 @@ import Link from 'next/link';
 const BlogCard = ({ title, excerpt, image, slug }) => (
   <div className="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 mt-12 border border-gray-100 flex flex-col justify-between">
     <div>
-      <div className="relative h-56 w-full overflow-hidden">
+      <div className="relative h-56 w-full overflow-hidden bg-purple-50">
         <div className="absolute inset-0 bg-gradient-to-t from-purple-950/60 to-transparent z-10" />
         <img      
-          src={image || '/teqnoor-default.jpg'} 
+          src={image ? `https://teqnoor.com/${image}` : '/teqnoor-default.jpg'} 
           alt={title} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
         />
@@ -44,15 +44,13 @@ const BlogGrid = () => {
     async function fetchBlogs() {
       try {
         const res = await fetch('https://teqnoor.com/api/blogs');
-        const data = await res.json();
+        const json = await res.json();
         
-        // Handles { success: true, blogs: [...] }, direct arrays [...], or standard objects
-        if (data && data.success && Array.isArray(data.blogs)) {
-          setPosts(data.blogs);
-        } else if (Array.isArray(data)) {
-          setPosts(data);
-        } else if (data && Array.isArray(data.blogs)) {
-          setPosts(data.blogs);
+        // The API returns { success: true, data: [...] }
+        if (json && json.success && Array.isArray(json.data)) {
+          setPosts(json.data);
+        } else if (Array.isArray(json)) {
+          setPosts(json);
         } else {
           setPosts([]);
         }
@@ -89,9 +87,9 @@ const BlogGrid = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {posts.map((post) => (
             <BlogCard 
-              key={post._id || post.slug} 
+              key={post.id || post._id || post.slug} 
               title={post.title}
-              excerpt={post.excerpt}
+              excerpt={post.description || post.excerpt}
               image={post.image}
               slug={post.slug}
             />
