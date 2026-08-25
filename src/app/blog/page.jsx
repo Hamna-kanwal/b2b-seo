@@ -71,11 +71,13 @@ export default function BlogListingPage() {
           {currentBlogs.map((blog) => {
             // Correctly map storage path returned from the database
             let imageUrl = null;
-            if (blog.image) {
-              imageUrl = blog.image.startsWith('http') 
-                ? blog.image 
-                : `https://teqnoor.com/${blog.image}`;
-            }
+if (blog.image) {
+  // Clean out any whitespace, newlines, or hidden breaks from the database string
+  const cleanedPath = blog.image.replace(/\s+/g, '').trim();
+  imageUrl = cleanedPath.startsWith('http') 
+    ? cleanedPath 
+    : `https://teqnoor.com/${cleanedPath}`;
+}
 
             const cleanSnippet = stripHtml(blog.description || blog.content);
 
